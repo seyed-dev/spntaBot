@@ -17,7 +17,7 @@ import redis
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import urllib.request as ur
-r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
+r = redis.StrictRedis(host='localhost', port=6379, db=1, decode_responses=True)
 
 WD = dirname(realpath(__file__))
 plugins = []
@@ -35,7 +35,6 @@ key = {
             '📥دانلود از اینستاگرام',
             '📥دانلود از یوتیوب'
         ],
-       
         [
             '⛈هواشناسی'
         ],
@@ -155,8 +154,8 @@ def handle_messages(message):
         r.incr('msg:{}'.format(content_type))
         lock_all = r.hget('lock_all', chat_id)
         lock_spam = r.hget('lock_spam', chat_id)
-        support = -1001364070282
-        supgp = -1001108312688
+        support = config['contact_channel']
+        supgp = config['support_gp']
         if chat_type == 'supergroup':
             if chat_id == supgp:
                 if 'reply_to_message' in message:
@@ -449,9 +448,6 @@ def on_callback_query(message):
                         if return_value:
                             yield from sender(return_value)
                         break
-    else:
-        if message['game_short_name'] == 's2048':
-            yield from bot.answerCallbackQuery(message['id'], url='http://irapi.ir/game')
 
 
 @asyncio.coroutine
