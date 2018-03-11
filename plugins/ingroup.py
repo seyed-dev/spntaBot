@@ -21,7 +21,7 @@ bot = telepot.Bot(config['token'])
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
     ln = lang
-    if r.hget('lang_gp', chat_id) == 'en'
+    if r.hget('lang_gp', chat_id) == 'en':
         ln = ln.en
     else:
         ln = ln.fa
@@ -30,7 +30,7 @@ def run(message, matches, chat_id, step):
             if is_sudo(message):
                 r.hset('owner', chat_id, message['reply_to_message']['from']['id'])
                 r.hset('owner:{}'.format(chat_id), message['reply_to_message']['from']['id'], True)
-                text=str(ln['ingroup']['setowner]).format(message['reply_to_message']['from']['first_name'],
+                text= str(ln['ingroup']['setowner']).format(message['reply_to_message']['from']['first_name'],
                         message['reply_to_message']['from']['id'])
                 bot.sendMessage(chat_id, text, parse_mode='Markdown')
     if matches == 'admin':
