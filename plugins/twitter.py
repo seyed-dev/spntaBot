@@ -7,10 +7,10 @@ from bs4 import BeautifulSoup
 from telepot.namedtuple import InlineQueryResultPhoto, InlineQueryResultArticle, InputTextMessageContent, \
     InlineQueryResultVideo, InlineKeyboardMarkup, InlineKeyboardButton
 
-from bot import downloader, get, is_group
+from bot import downloader, get, is_group, config
 from message import Message
 import telepot
-bot = telepot.Bot('524062252:AAGVHYYvesW-bWoSvfGzgh7Jz2PI4tVdIOc')
+bot = telepot.Bot(config['token'])
 
 
 @asyncio.coroutine
