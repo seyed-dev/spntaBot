@@ -17,7 +17,7 @@ import redis
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import urllib.request as ur
-r = redis.StrictRedis(host='localhost', port=6379, db=1, decode_responses=True)
+r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 WD = dirname(realpath(__file__))
 plugins = []
