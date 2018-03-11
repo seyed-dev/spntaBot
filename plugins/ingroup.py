@@ -235,6 +235,11 @@ def run(message, matches, chat_id, step):
                     bot.sendMessage(chat_id, text, parse_mode='Markdown')
                     i = i + 1
             bot.sendMessage(chat_id, 'تعداد {} نفر ادمین ربات شدند'.format(i))
+    if matches[0] == 'setlang':
+        if is_mod(message):
+            r.hset('lang_gp', chat_id, matches[1])
+            return [Message(chat_id).set_text(str(ln['ingroup']['setlang']).format(matches[1]))]
+
 
 plugin = {
     "name": "ingroup",
@@ -265,6 +270,7 @@ plugin = {
         "^[/#!](link)$",
         "^[/#!](creator)$",
         "^[/#!](time)$",
-        "^[/#!](admins_set)$"
+        "^[/#!](admins_set)$",
+        "^[/#!](setlang) (.*)$"
     ]
 }
