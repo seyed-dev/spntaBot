@@ -1,1 +1,26 @@
-{"plugins":["plugins","start","ingroup","expire","panel","calc","instagram","youtube","who","weather","add","photostick","ingroupfa","twitter"],"sudo_members":[463152143, 0],"token":"TOKEN","username":"spntaBot"}
+{
+  "plugins":[
+    "plugins",
+    "start",
+    "ingroup",
+    "expire",
+    "panel",
+    "calc",
+    "instagram",
+    "youtube",
+    "who",
+    "weather",
+    "add",
+    "photostick",
+    "ingroupfa",
+    "twitter"
+  ],
+  "sudo_members":[
+    463152143,
+    0
+  ],
+  "token":"TOKEN",
+  "username":"spntaBot",
+  "contact_channel": -1009999999,
+  "support_gp": -1009999999999
+}
