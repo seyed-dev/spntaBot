@@ -69,21 +69,10 @@ def run(message, matches, chat_id, step):
                     pass
             bot.sendMessage(chat_id, 'به {} گروه ارسال شد'.format(i))
 
-    elif matches == 'leave_free':
-        free = r.smembers('groups_free')
-        for x in free:
-            try:
-                bot.leaveChat(x)
-            except:
-                pass
-            r.srem('groups_free', x)
-        bot.sendMessage(chat_id, 'Bot Left From All Free Groups')
-
 
 plugin = {
-    "name": "پنل ادمین",
-    "desc": "دستوراتی مخصوص ادمین های ربات",
-    "usage": ["/add"],
+    "name": "admin",
+    "desc": "admin",
     "run": run,
     "sudo": True,
     "patterns": [
@@ -93,6 +82,5 @@ plugin = {
         "^[/#!](stats)$",
         "^[/#!](sendTab) (.*)$",
         "^[/#!](fbc)$",
-        "^[/#!](leave_free)$"
     ]
 }
