@@ -1,7 +1,7 @@
 import asyncio
 from telepot.namedtuple import InputTextMessageContent, InlineQueryResultArticle
 from message import Message
-from bot import is_owner, is_sudo, is_mod, is_group
+from bot import is_owner, is_sudo, is_mod, is_group, config
 import telepot
 import redis
 import os
@@ -9,7 +9,7 @@ import re
 import time
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
-bot = telepot.Bot('524062252:AAGVHYYvesW-bWoSvfGzgh7Jz2PI4tVdIOc')
+bot = telepot.Bot(config['token'])
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
