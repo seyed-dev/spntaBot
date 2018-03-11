@@ -1,9 +1,9 @@
 import asyncio
 import telepot
 from message import Message
-from bot import is_group, download
+from bot import is_group, download, config
 import os
-bot = telepot.Bot('524062252:AAGVHYYvesW-bWoSvfGzgh7Jz2PI4tVdIOc')
+bot = telepot.Bot(config['token'])
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
