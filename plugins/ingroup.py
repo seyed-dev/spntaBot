@@ -198,7 +198,6 @@ def run(message, matches, chat_id, step):
             i = 1
             for x in admins:
                 if x['status'] == 'administrator':
-                    print(x)
                     r.sadd('mod:{}'.format(chat_id), x['user']['id'])
                     text = str(ln['ingroup']['setowner']).format(x['user']['first_name'], x['user']['id'])
                     bot.sendMessage(chat_id, text, parse_mode='Markdown')
