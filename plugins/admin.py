@@ -27,6 +27,7 @@ def run(message, matches, chat_id, step):
         if r.sismember('groups', chat_id):
             bot.sendMessage(chat_id, ln['admin']['add']["0"])
         else:
+            r.hset('lang_gp', chat_id, 'fa')
             r.sadd('groups', chat_id)
             bot.sendMessage(chat_id, ln['admin']['add']["1"])
     elif matches == 'rem':
