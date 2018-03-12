@@ -2,6 +2,13 @@
 
 spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
 
+
+#### spntaBot on Telegram:
+
+- [`@spntaBot`](https://telegram.me/spntaBot)
+	- **_channel_**: [`@CRUEL_Project`](https://telegram.me/CRUEL_Project).
+* * *
+
 ## How to Run ?
 First of all install Python >= 3.5 and then install `pip3`.
 ```
@@ -29,9 +36,29 @@ sudo pip3 install beautifulsoup4
 sudo pip3 install youtube-dl
 sudo pip3 install pafy
 sudo pip3 install demjson
+sudo service redis-server start
+sudo pip3 install redis
 ```
 
-Add the bot Token and your id in config.json as a sudo member.
+## Setup
+
+**First of all, take a look at your bot settings**
+
+> * Make sure privacy is disabled (more info can be found by heading to the [official Bots FAQ page](https://core.telegram.org/bots/faq#what-messages-will-my-bot-get)). Send `/setprivacy` to [@BotFather](http://telegram.me/BotFather) to check the current status of this setting.
+
+
+**in `Terminal`:**
+
+```git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot```
+
+
+**Edite `config.json`:**
+
+> * Set `token` to the authentication token that you received from [`@BotFather`](http://telegram.me/BotFather).
+>
+> * Set `sudo_members` as a JSON array containing your numerical Telegram ID. Other superadmins can be added too. It is important that you insert the numerical ID and NOT a string.
+>
+
 
 make a screen!
 ```
