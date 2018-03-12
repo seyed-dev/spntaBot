@@ -51,7 +51,7 @@ sudo pip3 install requests --upgrade
 
 **in `Terminal`:**
 
-```git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot```
+```git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot; cd spntaBot```
 
 
 **Edite `config.json`:**
