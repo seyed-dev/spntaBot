@@ -8,6 +8,9 @@ import os
 import re
 import time
 import json
+import sys
+sys.path.append('../')
+import lang
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 bot = telepot.Bot(config['token'])
@@ -15,19 +18,23 @@ bot = telepot.Bot(config['token'])
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
+    ln = lang
+    if r.hget('lang_gp', chat_id) == 'en':
+        ln = ln.en
+    else:
+        ln = ln.fa
     if matches == 'add':
         if r.sismember('groups', chat_id):
-            bot.sendMessage(chat_id, 'گروه از قبل به لیست گروه های ربات اضافه شده بود🔖')
+            bot.sendMessage(chat_id, ln['admin']['add']["0"])
         else:
             r.sadd('groups', chat_id)
-            bot.sendMessage(chat_id, 'گروه به لیست گروه های ربات اضافه شد🔖')
-            bot.sendMessage(284244758, 'Group added\n{}\n{}'.format(chat_id, message['from']['first_name']))
+            bot.sendMessage(chat_id, ln['admin']['add']["1"])
     elif matches == 'rem':
         if r.sismember('groups', chat_id):
             r.srem('groups', chat_id)
-            bot.sendMessage(chat_id, 'با موفقیت حذف شد💢')
+            bot.sendMessage(chat_id, ln['admin']['rem']['0'])
         else:
-            bot.sendMessage(chat_id, 'این گروه در لیست گروه های ربات موجود نبوده🌀ـ🌀')
+            bot.sendMessage(chat_id, ln['admin']['rem']['1'])
     elif matches == 'leave':
         bot.leaveChat(chat_id)
     elif matches == 'stats':
@@ -44,17 +51,6 @@ def run(message, matches, chat_id, step):
         text += '\n>Groups: {}'.format(r.scard('groups'))
         text += '\n>Free Groups: {}'.format(r.scard('groups_free') or 0)
         bot.sendMessage(chat_id, text)
-    elif matches[0] == 'sendTab' and matches[1]:
-        gp = r.smembers('groups')
-        i = 0
-        for x in gp:
-            try:
-                send = bot.sendMessage(x, matches[1], parse_mode='Markdown')
-                if send:
-                    i = i + 1
-            except:
-                pass
-        bot.sendMessage(chat_id, 'به {} گروه ارسال شد'.format(i))
     elif matches == 'fbc':
         if 'reply_to_message' in message:
             m = message['reply_to_message']
@@ -64,7 +60,7 @@ def run(message, matches, chat_id, step):
                 try:
                     send = bot.forwardMessage(x, m['chat']['id'], m['message_id'])
                     if send:
-                        i = i + 1
+                        i += 1
                 except:
                     pass
             bot.sendMessage(chat_id, 'به {} گروه ارسال شد'.format(i))
