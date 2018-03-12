@@ -38,6 +38,8 @@ sudo pip3 install pafy
 sudo pip3 install demjson
 sudo service redis-server start
 sudo pip3 install redis
+sudo pip3 install pytz
+sudo pip3 install requests --upgrade
 ```
 
 ## Setup
