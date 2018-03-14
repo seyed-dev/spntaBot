@@ -24,7 +24,7 @@ def download(url, file_name):
 
 bot = telepot.Bot(config['token'])
 # create a client object with your app credentials
-client = soundcloud.Client(client_id='a3e059563d7fd3372b49b37f00a00bcf')
+client = soundcloud.Client(client_id='a3e059563srferweg37f00a00bcf')
 page_size = 100
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
@@ -43,7 +43,7 @@ def getfile2(url):
     response = "https://api.soundcloud.com/resolve?url={}&client_id=a3e059563d7fd3372b49b37f00a00bcf".format(url)
     r = ur.urlopen(response).read().decode('utf-8')
     jdat = json.loads(r)
-    return jdat['stream_url'] + "?client_id=a3e059563d7fd3372b49b37f00a00bcf"
+    return jdat['stream_url'] + "?client_id=a3e059563srferweg37f00a00bcf"
 
 
 @asyncio.coroutine
