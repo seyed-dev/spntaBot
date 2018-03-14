@@ -9,7 +9,7 @@ import soundcloud
 bot = telepot.Bot(config['token'])
 import os
 # create a client object with your app credentials
-client = soundcloud.Client(client_id='a3e059563d7fd3372b49b37f00a00bcf')
+client = soundcloud.Client(client_id='a3e059563srferweg37f00a00bcf')
 page_size = 100
 # get first 100 tracks
 
