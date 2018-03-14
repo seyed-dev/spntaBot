@@ -241,3 +241,5 @@ plugin = {
         "^[/#!](setlang) (.*)$"
     ]
 }
+
+#End By @Cruel | SeYeD :)
