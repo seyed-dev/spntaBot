@@ -84,16 +84,12 @@ def callback(message, matches, chat_id):
         cover = user_steps[chat_id]['cover'][i]
         title = user_steps[chat_id]['title'][i]
         file = getfile2(link)
-        download(file, 'tmp/{}.mp3'.format(title))
         try:
-            download(cover, 'tmp/{}.jpg'.format(title))
-            bot.sendPhoto(chat_id, open('tmp/{}.jpg'.format(title), 'rb'), caption='{}\n@spntaBot'.format(title))
-            os.remove('tmp/{}.jpg'.format(title))
+            bot.sendPhoto(chat_id, cover, caption='{}\n@spntaBot'.format(title))
         except:
             pass
-        bot.sendAudio(chat_id, open('tmp/{}.mp3'.format(title), 'rb'),title=title, performer="@SpntaBot",
+        bot.sendAudio(chat_id, file,title=title, performer="@SpntaBot",
                       caption='@SpntaBot')
-        os.remove('tmp/{}.mp3'.format(title))
         del user_steps[chat_id]
 
 
