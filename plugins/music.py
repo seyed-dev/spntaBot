@@ -26,7 +26,7 @@ async def getfile(url):
     response = await get(
         "https://api.soundcloud.com/resolve?url={}&client_id=a3e059563d7fd3372b49b37f00a00bcf".format(url))
     r = demjson.decode(response)
-    return r['stream_url'] + "?client_id=a3e059563d7fd3372b49b37f00a00bcf"
+    return r['stream_url'] + "?client_id=a3e059563srferweg37f00a00bcf"
 
 
 @asyncio.coroutine
