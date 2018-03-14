@@ -36,11 +36,16 @@ sudo pip3 install beautifulsoup4
 sudo pip3 install youtube-dl
 sudo pip3 install pafy
 sudo pip3 install demjson
-sudo service redis-server start
 sudo pip3 install redis
 sudo pip3 install pytz
 sudo pip3 install requests --upgrade
 sudo pip3 install soundcloud
+```
+
+install and start redis-server :
+```
+sudo apt install redis-server
+sudo service redis-server start
 ```
 
 ## Setup
