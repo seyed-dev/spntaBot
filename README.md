@@ -1,4 +1,4 @@
-# spntaBot v 1.4
+# spntaBot v 1.5
 
 spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
 
