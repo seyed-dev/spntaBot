@@ -38,6 +38,7 @@ sudo pip3 install pafy
 sudo pip3 install demjson
 sudo pip3 install redis
 sudo pip3 install pytz
+sudo pip3 install six
 sudo pip3 install requests --upgrade
 sudo pip3 install soundcloud
 ```
