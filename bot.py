@@ -195,9 +195,8 @@ def handle_messages(message):
                     if message['contact']['user_id'] == message['from']['id']:
                         print(message)
                         text = '''سلام دوست عزیز
- شماره شما در سیستم پشتیبانی ربات سپنتا ثبت شد✅
+ شماره شما در سیستم پشتیبانی ربات ثبت شد✅
 
-«تیم برنامه نویسی کرول»
 '''
                         ir = message['contact']['phone_number'][:2]
                         if ir == '98':
@@ -269,7 +268,7 @@ def handle_messages(message):
 برای ارتباط با پشتیبانی روی لینک زیر بزنید
 
 
-t.me/spntaBot?start=support''')
+t.me/{}?start=support''').format(yield from bot.getMe()['username']])
 
         if not is_mod(message):
             if content_type == 'text':
@@ -310,8 +309,8 @@ t.me/spntaBot?start=support''')
                                                               can_send_other_messages=False,
                                                               can_add_web_page_previews=False)
                             yield from bot.sendMessage(chat_id, '''کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞
-        برای خروج از این وضعیت به مدیران گروه مراجعه کنید👌
-        '''.format(message['from']['first_name'], message['from']['id']), parse_mode='Markdown')
+برای خروج از این وضعیت به مدیران گروه مراجعه کنید👌
+'''.format(message['from']['first_name'], message['from']['id']), parse_mode='Markdown')
                 lock_tg = r.hget('lock_tg', chat_id)
                 if lock_tg:
                     yield from bot.deleteMessage(telepot.message_identifier(message))
@@ -439,7 +438,7 @@ t.me/spntaBot?start=support''')
 
 @asyncio.coroutine
 def on_callback_query(message):
-    if not 'game_short_name' in message:
+    if not 'game_short_name' in message: #debugged
         query_id, from_id, data = telepot.glance(message, flavor='callback_query')
         for plugin in plugins:
             if 'callback' in plugin:
@@ -632,4 +631,3 @@ loop.create_task(check_queue())
 print('Bot Started ...')
 
 loop.run_forever()
-# @cruel | SeYeD Mohamad Khoshnava
