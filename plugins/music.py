@@ -9,7 +9,7 @@ import soundcloud
 bot = telepot.Bot(config['token'])
 import os
 # create a client object with your app credentials
-client = soundcloud.Client(client_id='') # Your client_id
+client = soundcloud.Client(client_id=config['soundcloud_client_id'])
 page_size = 100
 # get first 100 tracks
 
@@ -24,9 +24,9 @@ async def search(query):
 
 async def getfile(url):
     response = await get(
-        "https://api.soundcloud.com/resolve?url={}&client_id=".format(url)) # Your client_id
+        "https://api.soundcloud.com/resolve?url={}&client_id={}".format(url, config['soundcloud_client_id']))
     r = demjson.decode(response)
-    return r['stream_url'] + "?client_id=" # Your client_id
+    return r['stream_url'] + "?client_id={}".format(config['soundcloud_client_id'])
 
 
 @asyncio.coroutine
@@ -72,7 +72,7 @@ async def run(message, matches, chat_id, step):
                                  "tmp/{}.mp3".format(message['text']))
                 del user_steps[from_id]
                 bot.sendAudio(chat_id, open("tmp/{}.mp3".format(message['text']), 'rb'), title=message['text'],
-                                                   performer="@SpntaBot")
+                                                   performer="@{}".format(bot.getMe()['username']))
                 os.remove("tmp/{}.mp3".format(message['text']))
             except Exception as e:
                 del user_steps[from_id]
@@ -94,8 +94,9 @@ async def inline(message, matches, chat_id, step):
         ]
         markup = InlineKeyboardMarkup(inline_keyboard=key)
         musics.append(InlineQueryResultAudio(id=str(uuid.uuid4()), title=song[0], audio_url=await getfile(link),
-                                             performer='@spntaBot', caption='{}\n@SpntaBot'.format(title),
-                                             reply_markup=markup))
+                                             performer='@{}'.format(bot.getMe()['username'])),
+                      caption='{}\n@{}'.format(title, bot.getMe()['username'])),
+                      reply_markup=markup))
         i += 1
         if i == 20:
             break
