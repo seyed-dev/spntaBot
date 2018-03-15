@@ -24,7 +24,7 @@ def download(url, file_name):
 
 bot = telepot.Bot(config['token'])
 # create a client object with your app credentials
-client = soundcloud.Client(client_id='') # Your client_id
+client = soundcloud.Client(client_id='{}'.format(config['soundcloud_client_id']))
 page_size = 100
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
@@ -40,10 +40,10 @@ async def search(query):
 
 
 def getfile2(url):
-    response = "https://api.soundcloud.com/resolve?url={}&client_id=".format(url) # Your client_id
+    response = "https://api.soundcloud.com/resolve?url={}&client_id={}".format(url, config['soundcloud_client_id'])
     r = ur.urlopen(response).read().decode('utf-8')
     jdat = json.loads(r)
-    return jdat['stream_url'] + "?client_id=" # Your client_id
+    return jdat['stream_url'] + "?client_id={}".format(config['soundcloud_client_id'])
 
 
 @asyncio.coroutine
@@ -85,11 +85,11 @@ def callback(message, matches, chat_id):
         title = user_steps[chat_id]['title'][i]
         file = getfile2(link)
         try:
-            bot.sendPhoto(chat_id, cover, caption='{}\n@spntaBot'.format(title))
+            bot.sendPhoto(chat_id, cover, caption='{}\n@{}'.format(title, bot.getMe()['username'])))
         except:
             pass
-        bot.sendAudio(chat_id, file,title=title, performer="@SpntaBot",
-                      caption='@SpntaBot')
+        bot.sendAudio(chat_id, file,title=title, performer="@{}".format(bot.getMe()['username'])),
+                      caption='@{}'.format(bot.getMe()['username'])))
         del user_steps[chat_id]
 
 
