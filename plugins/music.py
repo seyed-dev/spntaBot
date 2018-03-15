@@ -9,7 +9,7 @@ import soundcloud
 bot = telepot.Bot(config['token'])
 import os
 # create a client object with your app credentials
-client = soundcloud.Client(client_id='a3e059563srferweg37f00a00bcf')
+client = soundcloud.Client(client_id='') # Your client_id
 page_size = 100
 # get first 100 tracks
 
@@ -24,9 +24,9 @@ async def search(query):
 
 async def getfile(url):
     response = await get(
-        "https://api.soundcloud.com/resolve?url={}&client_id=a3e059563d7fd3372b49b37f00a00bcf".format(url))
+        "https://api.soundcloud.com/resolve?url={}&client_id=".format(url)) # Your client_id
     r = demjson.decode(response)
-    return r['stream_url'] + "?client_id=a3e059563srferweg37f00a00bcf"
+    return r['stream_url'] + "?client_id=" # Your client_id
 
 
 @asyncio.coroutine
