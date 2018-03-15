@@ -23,5 +23,6 @@
   "token":"TOKEN",
   "username":"spntaBot",
   "contact_channel": -1009999999,
-  "support_gp": -1009999999999
+  "support_gp": -1009999999999,
+  "soundcloud_client_id": "YOUR CLIENT ID"
 }
