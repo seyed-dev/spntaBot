@@ -50,7 +50,6 @@ def run(message, matches, chat_id, step):
         text += '\n>All Message : {}'.format(i)
         text += '\n>pv members: {}'.format(r.scard('spntapv'))
         text += '\n>Groups: {}'.format(r.scard('groups'))
-        text += '\n>Free Groups: {}'.format(r.scard('groups_free') or 0)
         bot.sendMessage(chat_id, text)
     elif matches == 'fbc':
         if 'reply_to_message' in message:
