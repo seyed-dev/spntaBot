@@ -3,7 +3,7 @@ import asyncio
 from telepot.namedtuple import InputTextMessageContent, InlineQueryResultArticle, InlineKeyboardMarkup,\
     InlineKeyboardButton
 from message import Message
-from bot import is_owner, is_sudo, is_mod, is_group, is_mod2
+from bot import is_owner, is_sudo, is_mod, is_group, is_mod2, config
 import telepot
 import redis
 import os
@@ -13,7 +13,7 @@ import urllib.request as ur
 import json
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
-bot = telepot.Bot('524062252:AAGVHYYvesW-bWoSvfGzgh7Jz2PI4tVdIOc')
+bot = telepot.Bot(config['token'])
 
 
 
