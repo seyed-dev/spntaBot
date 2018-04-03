@@ -9,10 +9,11 @@ import requests
 from bs4 import BeautifulSoup
 import redis
 import string
+from bot import config
 import random
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
-bot = telepot.Bot('524062252:AAGlpKb8hEKDhmiCpNSoY1qlUwGkJ-3_Z3c')
+bot = telepot.Bot(condig['token'])
 
 
 @asyncio.coroutine
