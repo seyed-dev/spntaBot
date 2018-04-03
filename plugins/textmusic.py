@@ -13,7 +13,7 @@ from bot import config
 import random
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
-bot = telepot.Bot(condig['token'])
+bot = telepot.Bot(config['token'])
 
 
 @asyncio.coroutine
