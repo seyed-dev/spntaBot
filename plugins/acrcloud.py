@@ -13,14 +13,14 @@ from acrcloud.recognizer import ACRCloudRecognizer
 
 bot = telepot.Bot(config['token'])
 #get from https://www.acrcloud.com/
-config = {
+config_acr = {
         'host': '',
         'access_key': '',
         'access_secret': '',
         'timeout': 10
     }
 
-acr = ACRCloudRecognizer(config)
+acr = ACRCloudRecognizer(config_acr)
 
 
 
