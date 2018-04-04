@@ -58,8 +58,11 @@ sudo service redis-server start
 
 **in `Terminal`:**
 
-```git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot; cd spntaBot
-git clone https://github.com/acrcloud/acrcloud_sdk_python; python3 setup.py install; cd ..```
+```
+git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot; cd spntaBot
+git clone https://github.com/acrcloud/acrcloud_sdk_python; python3 setup.py install; cd ..
+
+```
 
 
 **Edite `config.json`:**
