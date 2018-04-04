@@ -41,7 +41,7 @@ sudo pip3 install pytz
 sudo pip3 install six
 sudo pip3 install requests --upgrade
 sudo pip3 install soundcloud
-sudo pip3 install beautifulsoup4
+
 ```
 
 install and start redis-server :
