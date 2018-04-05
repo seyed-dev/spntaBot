@@ -264,12 +264,13 @@ def handle_messages(message):
         if content_type == 'supergroup':
             if not r.sismember('groups', chat_id):
                 if not is_sudo(message):
-                    yield from bot.sendMessage(chat_id, '''
+                    text = '''
  گروه در لیست گروه های ربات موجود نیست
 برای ارتباط با پشتیبانی روی لینک زیر بزنید
 
 t.me/{}?start=support
-'''.format(yield from bot.getMe()['username']]))
+'''.format(yield from bot.getMe()['username']])
+                    yield from bot.sendMessage(chat_id, text)
 
         if not is_mod(message):
             if content_type == 'text':
