@@ -41,7 +41,9 @@ sudo pip3 install pytz
 sudo pip3 install six
 sudo pip3 install requests --upgrade
 sudo pip3 install soundcloud
-
+sudo pip install pytesseract
+sudo pip3 install Image
+sudo apt-get install tesseract-ocr
 ```
 
 install and start redis-server :
