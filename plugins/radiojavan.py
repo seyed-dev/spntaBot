@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from telepot.namedtuple import InlineQueryResultPhoto, InlineQueryResultArticle, InputTextMessageContent, \
     InlineQueryResultVideo, InlineKeyboardMarkup, InlineKeyboardButton
 
-from bot import downloader, get, is_group, token
+from bot import downloader, get, is_group, config
 from message import Message
 import telepot
 bot = telepot.Bot(config['token'])
