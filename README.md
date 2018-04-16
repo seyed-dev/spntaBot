@@ -92,4 +92,4 @@ Ctrl + C !
 
 
 ### Please
-please feel free to ask any questions here by issues or on telegram via [@cruel](https://telegram.me/cruel/)
+please feel free to ask any questions here by issues or on telegram via [@ITMKH](https://telegram.me/ITMKH/)
