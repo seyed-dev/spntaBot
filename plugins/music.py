@@ -95,7 +95,7 @@ async def inline(message, matches, chat_id, step):
         markup = InlineKeyboardMarkup(inline_keyboard=key)
         musics.append(InlineQueryResultAudio(id=str(uuid.uuid4()), title=song[0], audio_url=await getfile(link),
                                              performer='@{}'.format(bot.getMe()['username']),
-                      caption='{}\n@{}'.format(title, bot.getMe()['username'])), reply_markup=markup))
+                      caption='{}\n@{}'.format(title, bot.getMe()['username']), reply_markup=markup))
         i += 1
         if i == 20:
             break
