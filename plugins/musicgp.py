@@ -85,11 +85,11 @@ def callback(message, matches, chat_id):
         title = user_steps[chat_id]['title'][i]
         file = getfile2(link)
         try:
-            bot.sendPhoto(chat_id, cover, caption='{}\n@{}'.format(title, bot.getMe()['username'])))
+            bot.sendPhoto(chat_id, cover, caption='{}\n@{}'.format(title, bot.getMe()['username']))
         except:
             pass
-        bot.sendAudio(chat_id, file,title=title, performer="@{}".format(bot.getMe()['username'])),
-                      caption='@{}'.format(bot.getMe()['username'])))
+        bot.sendAudio(chat_id, file,title=title, performer="@{}".format(bot.getMe()['username']),
+                      caption='@{}'.format(bot.getMe()['username']))
         del user_steps[chat_id]
 
 
