@@ -9,48 +9,6 @@ spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) 
 	- **_channel_**: [`@CRUEL_Project`](https://telegram.me/CRUEL_Project).
 * * *
 
-## How to Run ?
-First of all install Python >= 3.5 and then install `pip3`.
-```
-sudo add-apt-repository ppa:fkrull/deadsnakes
-sudo apt-get update
-sudo apt-get install python3.5
-sudo apt-get install python3-pip
-```
-OR Compile with Source:
-```
-wget https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tgz
-tar xfz Python-3.5.*
-cd Python-3.5.*
-./configure --with-ensurepip=install
-make
-sudo make install
-```
-Run These commands for Resolving the dependencies.
-
-```
-sudo pip3 install pip -U
-sudo pip3 install telepot -U
-sudo pip3 install aiohttp
-sudo pip3 install beautifulsoup4
-sudo pip3 install youtube-dl
-sudo pip3 install pafy
-sudo pip3 install demjson
-sudo pip3 install redis
-sudo pip3 install pytz
-sudo pip3 install six
-sudo pip3 install requests --upgrade
-sudo pip3 install soundcloud
-sudo pip install pytesseract
-sudo pip3 install Image
-sudo apt-get install tesseract-ocr
-```
-
-install and start redis-server :
-```
-sudo apt install redis-server
-sudo service redis-server start
-```
 
 ## Setup
 
@@ -62,8 +20,10 @@ sudo service redis-server start
 **in `Terminal`:**
 
 ```
-git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot; cd spntaBot
-git clone https://github.com/acrcloud/acrcloud_sdk_python; python3 setup.py install; cd ..
+git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
+cd spntaBot
+chmod +x install.sh
+./install.sh
 
 ```
 
@@ -76,6 +36,7 @@ git clone https://github.com/acrcloud/acrcloud_sdk_python; python3 setup.py inst
 >
 
 
+## How to Run ?
 make a screen!
 ```
 screen -S spntaBot
