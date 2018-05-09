@@ -1,3 +1,5 @@
+##English
+
 # spntaBot v 1.5.3
 
 spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
@@ -54,3 +56,69 @@ Ctrl + C !
 
 ### Please
 please feel free to ask any questions here by issues or on telegram via [@ITMKH](https://telegram.me/ITMKH/)
+
+
+
+##Persian
+
+# سپنتابوت ورژن  1.5.3
+
+سپنتا بوت بر پایه تله پوت و سیاروبو نوشته شده است
+[Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
+
+
+#### سپنتا در تلگرام:
+
+- [`@spntaBot`](https://telegram.me/spntaBot)
+	- **_کانال_**: [`@CRUEL_Project`](https://telegram.me/CRUEL_Project).
+* * *
+
+
+## نصب
+
+**ابتدا باید تنظیمات ربات را در بات فادر انجام داد**
+
+> * غیر فعال کردن حالت privacy 
+. برای این منظور عبارت زیر را برای [بات فادر](http://telegram.me/BotFather) ارسال کنید
+`/setprivacy`
+
+
+**در `Terminal`:**
+
+```
+git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
+cd spntaBot
+chmod +x install.sh
+./install.sh
+
+```
+
+
+**اصلاح فایل `config.json`:**
+
+> * توکن گرفته شده از [`بات فادر`](http://telegram.me/BotFather) را در بخش توکن جایگزاری کنید.
+>
+> * در بخش سودو ممبرز ایدی سودو ها را وارد کنید.
+>
+
+
+## چگونه ربات رو اجرا کنیم ?
+با استفاده از اسکرین میتوانید ربات رو اجرا کنید!
+```
+screen -S spntaBot
+python3 bot.py
+```
+Ctrl + A + D !
+
+## چگونه ربات رو متوقف کنیم ?
+```
+screen -r spntaBot
+```
+Ctrl + C !
+
+
+
+### لطفا
+لطفا هر سوال و پرسشی که دارید رو از ایدی زیر در تلگرام بپرسید
+[@ITMKH](https://telegram.me/ITMKH/)
+
