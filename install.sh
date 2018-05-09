@@ -68,12 +68,11 @@ case $REPLY in [yY])
   fi
 
 	if [ ! -d .git ]; then
-		echo -en "${Green}Would you like to clone the source of SpntaBot? (Y/N): ${Default}"
+		echo -en "${Green}Would you like to clone the source of acrcloud sdk python? (Y/N): ${Default}"
 		read REPLY
 		if [[ $REPLY == [yY] ]]; then
-			echo -en "${Orange}Fetching latest SpntaBot source code\n${Default}"
-			git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot.git && cd spntaBot
-      git clone https://github.com/acrcloud/acrcloud_sdk_python && cd acrcloud_sdk_python && python3 setup.py install && cd ..
+			echo -en "${Orange}Fetching latest acrcloud sdk python source code\n${Default}"
+			git clone https://github.com/acrcloud/acrcloud_sdk_python && cd acrcloud_sdk_python && python3 setup.py install && cd ..
 		fi
   fi
 
