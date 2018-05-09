@@ -33,21 +33,21 @@ case $REPLY in [yY])
 	echo -en "${Cyan}Do you want to pip packages (Y/N): ${Default}"
 	read REPLY
 	if [[ $REPLY == [yY] ]]; then
-    sudo pip3 install pip -U
-    sudo pip3 install telepot -U
-    sudo pip3 install aiohttp
-    sudo pip3 install beautifulsoup4
-    sudo pip3 install youtube-dl
-    sudo pip3 install pafy
-    sudo pip3 install demjson
-    sudo pip3 install redis
-    sudo pip3 install pytz
-    sudo pip3 install six
-    sudo pip3 install requests --upgrade
-    sudo pip3 install soundcloud
-    sudo pip install pytesseract
-    sudo pip3 install Image
-  fi
+    		sudo pip3 install pip -U
+    		sudo pip3 install telepot -U
+    		sudo pip3 install aiohttp
+    		sudo pip3 install beautifulsoup4
+    		sudo pip3 install youtube-dl
+    		sudo pip3 install pafy
+    		sudo pip3 install demjson
+    		sudo pip3 install redis
+    		sudo pip3 install pytz
+    		sudo pip3 install six
+    		sudo pip3 install requests --upgrade
+    		sudo pip3 install soundcloud
+    		sudo pip install pytesseract
+    		sudo pip3 install Image
+	fi
  
 
 	echo -en "${Cyan}Do you want to download the tesseract-ocr libraries (Y/N): ${Default}"
@@ -56,16 +56,16 @@ case $REPLY in [yY])
 		for ROCK in $ROCKS; do
 			sudo apt-get install tesseract-ocr
 		done
-  fi
+	fi
 
 	echo -en "${Cyan}Do you want to download the redis libraries (Y/N): ${Default}"
 	read REPLY
 	if [[ $REPLY == [yY] ]]; then
 		for ROCK in $ROCKS; do
 			sudo apt install redis-server
-      sudo service redis-server start
+			sudo service redis-server start
 		done
-  fi
+	fi
 
 	if [ ! -d .git ]; then
 		echo -en "${Green}Would you like to clone the source of acrcloud sdk python? (Y/N): ${Default}"
@@ -74,7 +74,7 @@ case $REPLY in [yY])
 			echo -en "${Orange}Fetching latest acrcloud sdk python source code\n${Default}"
 			git clone https://github.com/acrcloud/acrcloud_sdk_python && cd acrcloud_sdk_python && python3 setup.py install && cd ..
 		fi
-  fi
+	fi
 
 
 	echo -en "${BGreen}SpntaBot successfully installed! Change values in config file and run ${BRed}./launch.sh${BGreen}.${Default}";;
