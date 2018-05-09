@@ -77,6 +77,6 @@ case $REPLY in [yY])
 	fi
 
 
-	echo -en "${BGreen}SpntaBot successfully installed! Change values in config file and run ${BRed}./launch.sh${BGreen}.${Default}";;
+	echo -en "${BGreen}SpntaBot successfully installed! Change values in config file";;
 	*) echo "Exiting...";;
 esac
