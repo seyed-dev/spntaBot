@@ -185,9 +185,16 @@ def run(message, matches, chat_id, step):
                 bot.sendMessage(chat_id, ln['ingroup']['unmuteAll']['0'])
             else:
                 bot.sendMessage(chat_id, ln['ingroup']['unmuteAll']['1'])
-    if matches == 'link':
+    if matches == 'newlink':
         if is_mod(message):
             link = bot.exportChatInviteLink(chat_id)
+            r.hset('group_link', chat_id, link)
+            text = '''{}
+{}'''.format(message['chat']['title'], link)
+            bot.sendMessage(chat_id, text)
+    if matches == 'newlink':
+        if is_mod(message):
+            link = r.hget('group_link', chat_id) or 'link not Found\ncreate new link with /newlink'
             text = '''{}
 {}'''.format(message['chat']['title'], link)
             bot.sendMessage(chat_id, text)
@@ -239,7 +246,8 @@ plugin = {
         "^[/#!](creator)$",
         "^[/#!](time)$",
         "^[/#!](admins_set)$",
-        "^[/#!](setlang) (.*)$"
+        "^[/#!](setlang) (.*)$",
+        "^[/#!](newlink)$
     ]
 }
 
