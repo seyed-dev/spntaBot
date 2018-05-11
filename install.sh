@@ -47,6 +47,7 @@ case $REPLY in [yY])
     		sudo pip3 install soundcloud
     		sudo pip install pytesseract
     		sudo pip3 install Image
+		sudo pip3 install telethon
 	fi
  
 
