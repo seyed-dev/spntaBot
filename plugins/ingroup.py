@@ -247,7 +247,7 @@ plugin = {
         "^[/#!](time)$",
         "^[/#!](admins_set)$",
         "^[/#!](setlang) (.*)$",
-        "^[/#!](newlink)$
+        "^[/#!](newlink)$"
     ]
 }
 
