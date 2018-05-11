@@ -17,6 +17,7 @@ import redis
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import urllib.request as ur
+from telethon import TelegramClient
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 WD = dirname(realpath(__file__))
@@ -148,6 +149,16 @@ def markdown_escape(text):
     text = text.replace("*", "\\*")
     text = text.replace("`", "\\`")
     return text
+
+
+api_id = 30183
+api_hash = '9acd8114cf4612fc022904ec13736220'
+client = TelegramClient('spntaBot', api_id, api_hash)
+client.start(bot_token=config['token'])
+
+
+def get_user_id(username):
+    return client.get_entity(username.replace('@', '')).id
 
 
 @asyncio.coroutine
