@@ -53,6 +53,7 @@ case $REPLY in [yY])
 	if [[ $REPLY == [yY] ]]; then
 		for ROCK in $ROCKS; do
 			pkg install tesseract-ocr
+			pkg install nano
 		done
 	fi
 
