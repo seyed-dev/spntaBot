@@ -1,4 +1,4 @@
-##English
+## English
 
 # spntaBot v 1.5.3
 
@@ -30,7 +30,7 @@ chmod +x install.sh
 
 ```
 
-## Termux :
+## [Termux](https://play.google.com/store/apps/details?id=com.termux&hl=en_US) :
 ```
 git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
 cd spntaBot
@@ -68,7 +68,7 @@ please feel free to ask any questions here by issues or on telegram via [@ITMKH]
 
 
 
-##Persian
+## Persian
 
 # سپنتابوت ورژن  1.5.3
 
@@ -104,7 +104,7 @@ chmod +x install.sh
 ```
 
 
-## ترموکس :
+## [ترموکس](https://play.google.com/store/apps/details?id=com.termux&hl=fa_IR) :
 ```
 git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
 cd spntaBot
