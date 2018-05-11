@@ -186,10 +186,11 @@ def run(message, matches, chat_id, step):
             else:
                 bot.sendMessage(chat_id, ln['ingroup']['unmuteAll']['1'])
     if matches == 'link':
-        link = bot.exportChatInviteLink(chat_id)
-        text = '''{}
+        if is_mod(message):
+            link = bot.exportChatInviteLink(chat_id)
+            text = '''{}
 {}'''.format(message['chat']['title'], link)
-        bot.sendMessage(chat_id, text)
+            bot.sendMessage(chat_id, text)
 
     if matches == 'admins_set':
         if is_owner(message):
