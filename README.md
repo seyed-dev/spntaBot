@@ -21,12 +21,21 @@ spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) 
 
 **in `Terminal`:**
 
+## Ubuntu :
 ```
 git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
 cd spntaBot
 chmod +x install.sh
 ./install.sh
 
+```
+
+## Termux :
+```
+git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
+cd spntaBot
+chmod +x termux.sh
+./termux.sh
 ```
 
 
@@ -85,6 +94,7 @@ please feel free to ask any questions here by issues or on telegram via [@ITMKH]
 
 **در `Terminal`:**
 
+## ابونتو :
 ```
 git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
 cd spntaBot
@@ -94,13 +104,27 @@ chmod +x install.sh
 ```
 
 
+## ترموکس :
+```
+git clone https://github.com/MOHAMADKHOSHNAVA/spntaBot
+cd spntaBot
+chmod +x termux.sh
+./termux.sh
+redis-server
+```
+اگر شما از ترموکس استفاده میکنید برای ادامه کار و اجرای ربات باید یک ترمینال جدید باز کنید.
+برای این منظور زبانه کناری گوشی را بکشید و سپس روی ساخت پنجره جدید کلیک کنید
+
+
+
 **اصلاح فایل `config.json`:**
 
 > * توکن گرفته شده از [`بات فادر`](http://telegram.me/BotFather) را در بخش توکن جایگزاری کنید.
 >
 > * در بخش سودو ممبرز ایدی سودو ها را وارد کنید.
 >
-
+> * اگر از ترموکس استفاده میکنید برای سیو کردن فایل در حالت نانو کلید کم کردن صدا را همرا با دکمه ایکس در کیبورد فشار دهید سپس ادامه کار مثل ابونتو
+>
 
 ## چگونه ربات رو اجرا کنیم ?
 با استفاده از اسکرین میتوانید ربات رو اجرا کنید!
