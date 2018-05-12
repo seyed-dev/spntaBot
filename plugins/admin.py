@@ -15,7 +15,7 @@ r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 bot = telepot.Bot(config['token'])
 language = config['lang']
-ln = lang.message.language
+ln = lang.message.str(language)
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
