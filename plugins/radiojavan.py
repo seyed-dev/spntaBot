@@ -12,6 +12,10 @@ from message import Message
 import telepot
 bot = telepot.Bot(config['token'])
 
+import sys
+sys.path.append('../')
+import lang
+ln = lang.message[config['lang']]
 
 @asyncio.coroutine
 async def run(message, matches, chat_id, step):
@@ -24,7 +28,7 @@ async def run(message, matches, chat_id, step):
             bot.sendPhoto(chat_id, photo, reply_to_message_id=message['message_id'], caption=title, parse_mode='html')
             bot.sendAudio(chat_id, music, caption='{}\n@spntaBot'.format(title), performer='@spntaBot')
         else:
-            return [Message(chat_id).set_text("<b>لینک اشتباهه 😞 !</b>:\n", parse_mode="html",
+            return [Message(chat_id).set_text(ln['radiojavan']['linkError'], parse_mode="html",
                                               reply_to_message_id=message['message_id'])]
 
 plugin = {
