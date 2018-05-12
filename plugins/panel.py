@@ -15,6 +15,10 @@ r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 bot = telepot.Bot(config['token'])
 
+import sys
+sys.path.append('../')
+import lang
+ln = lang.message[config['lang']]
 
 
 @asyncio.coroutine
@@ -63,24 +67,24 @@ def tf2(lock):
 
 @asyncio.coroutine
 def callback(message, matches, chat_id):
-    locks = {'lock_link': 'قفل لینک📎',
-             'lock_username': 'قفل یوزرنیم[@]🔗',
-             'lock_photo': 'قفل عکس🖼',
-             'lock_doc': 'قفل گیف🌠',
-             'lock_film': 'قفل فیلم🎥',
-             'lock_music': 'قفل موزیک🎼',
-             'lock_voice': 'قفل ویس🗣',
-             'lock_game': 'قفل بازی🏓',
-             'lock_doc': 'قفل فایل📁',
-             'lock_contact': 'قفل مخاطب🔢',
-             'lock_sticker': 'قفل استیکر🎭',
-             'lock_bots': 'قفل ورود ربات🤖',
-             'lock_fwd': 'قفل فوروارد 🔂',
-             'lock_spam': 'قفل اسپم 👿',
-             'lock_tg': 'قفل پیام ورود و خروج 🚶',
-             'lock_loc': 'قفل لوکیشن(مکان)🗺',
-             'lock_all': 'قفل گروه🔕',
-             'lock_video_note': 'قفل ویدیو مسیج🤳'
+    locks = {'lock_link': ln['panel']['locks']['lock_link'],
+             'lock_username': ln['panel']['locks']['lock_username'],
+             'lock_photo': ln['panel']['locks']['lock_photo'],
+             'lock_gif': ln['panel']['locks']['lock_gif'],
+             'lock_film': ln['panel']['locks']['lock_film'],
+             'lock_music': ln['panel']['locks']['lock_music'],
+             'lock_voice': ln['panel']['locks']['lock_voice'],
+             'lock_game': ln['panel']['locks']['lock_game'],
+             'lock_doc': ln['panel']['locks']['lock_doc'],
+             'lock_contact': ln['panel']['locks']['lock_contact'],
+             'lock_sticker': ln['panel']['locks']['lock_sticker'],
+             'lock_bots': ln['panel']['locks']['lock_bots'],
+             'lock_fwd': ln['panel']['locks']['lock_fwd'],
+             'lock_spam': ln['panel']['locks']['lock_spam'],
+             'lock_tg': ln['panel']['locks']['lock_tg'],
+             'lock_loc': ln['panel']['locks']['lock_loc'],
+             'lock_all': ln['panel']['locks']['lock_all'],
+             'lock_video_note': ln['panel']['locks']['lock_video_note']
              }
     query_id, from_id, data = telepot.glance(message, flavor='callback_query')
     if is_mod2(message['message'], message):
@@ -89,14 +93,14 @@ def callback(message, matches, chat_id):
             if owner:
                 oner = '[{}](tg://user?id={})'.format(owner, owner)
             else:
-                oner = 'وجود ندارد❌'
+                oner = ln['panel']['notfound']
             mods = r.smembers('mod:{}'.format(chat_id))
             if mods:
                 mod = ''
                 for x in mods:
                     mod += '\n>[{}](tg://user?id={})'.format(x, x)
             else:
-                mod = 'وجود ندارد❌'
+                mod = ln['panel']['notfound']
 
             text = '''👤 ادمین اصلی : {}
 
