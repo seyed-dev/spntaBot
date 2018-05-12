@@ -42,7 +42,7 @@ message = {
             "pin": "سنجاق شد📌",
             "unpin": "سنجاق گروه برداشته شد📌",
             "ban": "کاربر [{}](tg://user?id={}) از گروه اخراج شد❌",
-            "ban_id" "کاربر {} از گروه اخراج شد❌",
+            "ban_id": "کاربر {} از گروه اخراج شد❌",
             "banError": "شما نمیتوانید ادمین را اخراج کنید🙄",
             "muteError": "شما نمیتوانید ادمین را میوت کنید🙄",
             "admins": {
@@ -124,7 +124,7 @@ message = {
             "pin": "Pin📌",
             "unpin": "Unpin📌",
             "ban": "user [{}](tg://user?id={}) Has been banned❌",
-            "ban_id" "user {} Has been banned❌",
+            "ban_id": "user {} Has been banned❌",
             "banError": "You Can't removed Admin Group🙄",
             "muteError": "You Can't Mute Admin Group🙄",
             "admins": {
