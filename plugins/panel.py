@@ -1,4 +1,4 @@
-# coding=utf-8
+# -*- coding=utf-8 -*-
 import asyncio
 from telepot.namedtuple import InputTextMessageContent, InlineQueryResultArticle, InlineKeyboardMarkup,\
     InlineKeyboardButton
@@ -102,10 +102,7 @@ def callback(message, matches, chat_id):
             else:
                 mod = ln['panel']['notfound']
 
-            text = '''👤 ادمین اصلی : {}
-
-            👥 سایر ادمین ها :
-            {}'''.format(oner, mod)
+            text = str(ln['panel']['admins']).format(oner, mod)
 
             key = [
                 [
@@ -131,9 +128,6 @@ def callback(message, matches, chat_id):
                 [
                     InlineKeyboardButton(text='روز {}'.format(days), callback_data='/expire'),
                     InlineKeyboardButton(text='📆شارژ گروه', callback_data='/expire'),
-                ],
-                [
-                    InlineKeyboardButton(text='💡ورود به کانال راهنما💡', url='https://t.me/spntaHelp'),
                 ]
             ]
             markup = InlineKeyboardMarkup(inline_keyboard=key)
@@ -212,13 +206,7 @@ def callback(message, matches, chat_id):
                     ]
 
                 ]
-                text = '''منوی تنظیمات ارسال پیام🗯
-(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)
-
-اخرین تغییرات :
-👤 [{}](tg://user?id={})
-├ `Pm setting`
-└ `{} => {}`'''.format(message['from']['first_name'], message['from']['id'], pat, num)
+                text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], pat, num)
                 markup = InlineKeyboardMarkup(inline_keyboard=key)
                 msgid = (chat_id, message['message']['message_id'])
                 return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
@@ -258,13 +246,7 @@ def callback(message, matches, chat_id):
                     ]
 
                 ]
-                text = '''منوی تنظیمات ارسال پیام🗯
-(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)
-
-اخرین تغییرات :
-👤 [{}](tg://user?id={})
-├ `Pm setting`
-└ `{} => {}`'''.format(message['from']['first_name'], message['from']['id'], pat, num)
+                text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], pat, num)
                 markup = InlineKeyboardMarkup(inline_keyboard=key)
                 msgid = (chat_id, message['message']['message_id'])
                 return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
@@ -304,13 +286,7 @@ def callback(message, matches, chat_id):
                     ]
 
                 ]
-                text = '''منوی تنظیمات ارسال پیام🗯
-(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)
-
-اخرین تغییرات :
-👤 [{}](tg://user?id={})
-├ `Pm setting`
-└ `{} => {}`'''.format(message['from']['first_name'], message['from']['id'], pat, num)
+                text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], pat, num)
                 markup = InlineKeyboardMarkup(inline_keyboard=key)
                 msgid = (chat_id, message['message']['message_id'])
                 return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
@@ -350,13 +326,7 @@ def callback(message, matches, chat_id):
                     ]
 
                 ]
-                text = '''منوی تنظیمات ارسال پیام🗯
-(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)
-
-اخرین تغییرات :
-👤 [{}](tg://user?id={})
-├ `Pm setting`
-└ `{} => {}`'''.format(message['from']['first_name'], message['from']['id'], pat, num)
+                text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], pat, num)
                 markup = InlineKeyboardMarkup(inline_keyboard=key)
                 msgid = (chat_id, message['message']['message_id'])
                 return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
@@ -384,13 +354,7 @@ def callback(message, matches, chat_id):
 
         if matches[0] == 'lock_':
             l = matches[0]+matches[1]
-            text = '''📋به پنل تنظیمات ربات خوش آمدید برای مدیریت گروه از کیبورد زیر استفاده کنید.
-(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)
-
-اخرین تغییرات :
-👤 [{}](tg://user?id={})
- ├ `settings changed`
- └ `{} =>'''.format(message['from']['first_name'], message['from']['id'], l)
+            text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], l)
             key = []
             for lock in locks:
                 if lock == l:
@@ -398,12 +362,12 @@ def callback(message, matches, chat_id):
                         r.hdel(lock, chat_id)
                         text += ' OFF`'
                         status = '«✖️»'
-                        bot.answerCallbackQuery(query_id, 'غیر فعال شد✖️')
+                        bot.answerCallbackQuery(query_id, ln['panel']['disable'])
                     else:
                         r.hset(lock, chat_id, True)
                         text += ' ON`'
                         status = '«✔️»'
-                        bot.answerCallbackQuery(query_id, 'فعال شد ✔️')
+                        bot.answerCallbackQuery(query_id, ln['panel']['enable'])
                 else:
                     status = r.hget(lock, chat_id) and '«✔️»' or '«✖️»'
                 key.append(
