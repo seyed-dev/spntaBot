@@ -154,7 +154,9 @@ def markdown_escape(text):
 api_id = 30183
 api_hash = '9acd8114cf4612fc022904ec13736220'
 client = TelegramClient('spntaBot', api_id, api_hash)
-client.start(bot_token=config['token'])
+token = config['token']
+print(token)
+client.start(bot_token=)
 
 
 def get_user_id(username):
