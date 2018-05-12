@@ -2,7 +2,7 @@ message = {
     "fa" : {
         "panel":{
             "setting_text": "منوی تنظیمات ارسال پیام🗯\nاخرین تغییرات :\n👤 [{}](tg://user?id={})\n├ `Pm setting`\n└ `{} => {}`",
-            "admins": "👤 ادمین اصلی : {}\n\n👥 سایر ادمین ها :\n\n{}"
+            "admins": "👤 ادمین اصلی : {}\n\n👥 سایر ادمین ها :\n\n{}",
             "disable": "غیر فعال شد✖️",
             "enable": "فعال شد ✔️",
             "locks":{
@@ -83,6 +83,10 @@ message = {
     },
     "en": {
         "panel":{
+            "setting_text": "Menu🗯\nLasted change :\n👤 [{}](tg://user?id={})\n├ `Pm setting`\n└ `{} => {}`",
+            "admins": "👤 Owner : {}\n\n👥 admins :\n\n{}",
+            "disable": "Disabled✖️",
+            "enable": "Enabled ✔️",
             "locks":{
                 "lock_link": "Lock link📎",
                 "lock_username": "Lock username[@]🔗",
