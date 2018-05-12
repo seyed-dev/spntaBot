@@ -1,5 +1,6 @@
-fa = {
-    "ingroup": {
+message = {
+    "fa" = {
+        "ingroup": {
         "setowner": "کاربر [{}](tg://user?id={}) ادمین اصلی ربات در گروه شد👤",
         "setlang": "زبان ربات به {} تنظیم شد",
         "user": "کاربر [{}](tg://user?id={}) از این به بعد یک کاربر معمولی میباشد👌",
@@ -44,19 +45,19 @@ fa = {
         "username": "▶️ @{}"
     }
 }
-en = {
-    "ingroup": {
-        "setowner": "user [{}](tg://user?id={}) promote to admin👤",
-        "setlang": "lang set to {}",
-        "user": "user [{}](tg://user?id={}) Has been demoted👌",
-        "title": "Group Title Has been changed✅",
-        "pin": "Pin📌",
-        "unpin": "Unpin📌",
-        "ban": "user [{}](tg://user?id={}) Has been banned❌",
-        "banError": "You Can't removed Admin Group🙄",
-        "admins": {
-            "0": "There is no❌",
-            "1": "👤 owner : {}\nPromoted :\n{}"
+    "en" = {
+        "ingroup": {
+            "setowner": "user [{}](tg://user?id={}) promote to admin👤",
+            "setlang": "lang set to {}",
+            "user": "user [{}](tg://user?id={}) Has been demoted👌",
+            "title": "Group Title Has been changed✅",
+            "pin": "Pin📌",
+            "unpin": "Unpin📌",
+            "ban": "user [{}](tg://user?id={}) Has been banned❌",
+            "banError": "You Can't removed Admin Group🙄",
+            "admins": {
+                "0": "There is no❌",
+                "1": "👤 owner : {}\nPromoted :\n{}"
         },
         "filter": "☠️this Words Added to filter List :\n{}",
         "unfilter": "☠️this words Removed from Filter List :\n{}",
@@ -90,5 +91,4 @@ en = {
         "username": "▶️ @{}"
     }
 }
-
-# End
+}
