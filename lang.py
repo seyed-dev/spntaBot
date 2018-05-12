@@ -2,7 +2,7 @@ message = {
     "fa" : {
         "panel":{
             "setting_text": "منوی تنظیمات ارسال پیام🗯\nاخرین تغییرات :\n👤 [{}](tg://user?id={})\n├ `Pm setting`\n└ `{} => {}`",
-            "setting_text2": "منوی تنظیمات ارسال پیام🗯\nاخرین تغییرات :\n👤 [{}](tg://user?id={})\n├ `settings changed`\n└ {} =>",
+            "setting_text2": "منوی تنظیمات ارسال پیام🗯\nاخرین تغییرات :\n👤 [{}](tg://user?id={})\n├ `settings changed`\n└ `{} =>",
             "admins": "👤 ادمین اصلی : {}\n\n👥 سایر ادمین ها :\n\n{}",
             "disable": "غیر فعال شد✖️",
             "enable": "فعال شد ✔️",
@@ -85,7 +85,7 @@ message = {
     "en": {
         "panel":{
             "setting_text": "Menu🗯\nLasted change :\n👤 [{}](tg://user?id={})\n├ `Pm setting`\n└ `{} => {}`",
-            "setting_text2": "Menu🗯\nLasted change :\n👤 [{}](tg://user?id={})\n├ `settings changed`\n└ `{} =>`",
+            "setting_text2": "Menu🗯\nLasted change :\n👤 [{}](tg://user?id={})\n├ `settings changed`\n└ `{} =>",
             "admins": "👤 Owner : {}\n\n👥 admins :\n\n{}",
             "disable": "Disabled✖️",
             "enable": "Enabled ✔️",
