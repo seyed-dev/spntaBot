@@ -44,8 +44,8 @@ message = {
             "id": "🆔 \\[{}]",
             "username": "▶️ @{}"
         }
-    }
-    "en" : {
+    },
+    "en": {
         "ingroup": {
             "setowner": "user [{}](tg://user?id={}) promote to admin👤",
             "setlang": "lang set to {}",
@@ -59,36 +59,36 @@ message = {
                 "0": "There is no❌",
                 "1": "👤 owner : {}\nPromoted :\n{}"
         },
-        "filter": "☠️this Words Added to filter List :\n{}",
-        "unfilter": "☠️this words Removed from Filter List :\n{}",
-        "filters": "🤐Filter List :\n{}",
-        "mute": "user [{}](tg://user?id={}) Added to mute List for {} Day",
-        "unmute": "UnMuted :)",
-        "muteAll": {
-            "0": "Group is Locked✔️",
-            "1": "Mute All Has Been Enabled️"
+            "filter": "☠️this Words Added to filter List :\n{}",
+            "unfilter": "☠️this words Removed from Filter List :\n{}",
+            "filters": "🤐Filter List :\n{}",
+            "mute": "user [{}](tg://user?id={}) Added to mute List for {} Day",
+            "unmute": "UnMuted :)",
+            "muteAll": {
+                "0": "Group is Locked✔️",
+                "1": "Mute All Has Been Enabled️"
+            },
+            "unmuteAll": {
+                "0": "Mute All Has Been Disabled✅",
+                "1": "Group is Not Locked 🙄"
+            },
+            "admins_set": "All Admins Group Now is Promoted"
         },
-        "unmuteAll": {
-            "0": "Mute All Has Been Disabled✅",
-            "1": "Group is Not Locked 🙄"
+        "admin": {
+            "add": {
+                "0": "Group is Available 🔖",
+                "1": "Group Has been Added🔖"
+            },
+            "rem": {
+                "0": "Group Has been removed from db💢",
+                "1": "Group is Not Available🌀ـ🌀"
+            }
         },
-        "admins_set": "All Admins Group Now is Promoted"
-    },
-    "admin": {
-        "add": {
-            "0": "Group is Available 🔖",
-            "1": "Group Has been Added🔖"
-        },
-        "rem": {
-            "0": "Group Has been removed from db💢",
-            "1": "Group is Not Available🌀ـ🌀"
+        "who": {
+            "name": "👤 *{} {}*",
+            "group": "👥 *{}*",
+            "id": "🆔 \\[{}]",
+            "username": "▶️ @{}"
         }
-    },
-    "who": {
-        "name": "👤 *{} {}*",
-        "group": "👥 *{}*",
-        "id": "🆔 \\[{}]",
-        "username": "▶️ @{}"
     }
-}
 }
