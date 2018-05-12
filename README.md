@@ -1,6 +1,6 @@
 ## English
 
-# spntaBot v 1.5.3
+# spntaBot v 1.9
 
 spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
 
@@ -70,7 +70,7 @@ please feel free to ask any questions here by issues or on telegram via [@ITMKH]
 
 ## Persian
 
-# سپنتابوت ورژن  1.5.3
+# سپنتابوت ورژن  1.9
 
 سپنتا بوت بر پایه تله پوت و سیاروبو نوشته شده است
 [Telepot](https://github.com/nickoala/telepot) & [Siarobo](https://github.com/siyanew/Siarobo) - http://telegram.me/spntaBot
