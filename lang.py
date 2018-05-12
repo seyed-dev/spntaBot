@@ -1,5 +1,12 @@
 message = {
     "fa" : {
+        "weather":{
+            "city":"🏘نام شهر خود را وارد کنید(ترجیها انگلیسی بنویسید)",
+            "error":"پیدا نکردم شهرتو 😢"
+        },
+        "radiojavan" : {
+        "linkError": "لینک اشتباهه 😞 !"
+        },
         "ingroup": {
             "setowner": "کاربر [{}](tg://user?id={}) ادمین اصلی ربات در گروه شد👤",
             "setlang": "زبان ربات به {} تنظیم شد",
@@ -48,6 +55,13 @@ message = {
         }
     },
     "en": {
+        "weather":{
+            "city":"🏘please send city name",
+            "error":"city not found 😢"
+        },
+        "radiojavan" : {
+        "linkError": "Link is Wrong😞 !"
+        },
         "ingroup": {
             "setowner": "user [{}](tg://user?id={}) promote to admin👤",
             "setlang": "lang set to {}",
