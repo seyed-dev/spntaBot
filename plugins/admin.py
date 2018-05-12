@@ -15,19 +15,14 @@ r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 bot = telepot.Bot(config['token'])
 
+ln = lang.message.config['lang']
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
-    ln = lang
-    if r.hget('lang_gp', chat_id) == 'en':
-        ln = ln.en
-    else:
-        ln = ln.fa
     if matches == 'add':
         if r.sismember('groups', chat_id):
             bot.sendMessage(chat_id, ln['admin']['add']["0"])
         else:
-            r.hset('lang_gp', chat_id, 'fa')
             r.sadd('groups', chat_id)
             bot.sendMessage(chat_id, ln['admin']['add']["1"])
     elif matches == 'rem':
