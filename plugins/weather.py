@@ -1,7 +1,7 @@
 import asyncio
 import json
 
-from bot import get, user_steps, is_group, key
+from bot import get, user_steps, is_group, key, config
 from message import Message
 
 icons = {'01d': '🌞',
@@ -24,7 +24,10 @@ icons = {'01d': '🌞',
          '50n': '🌫',
          }
 
-
+import sys
+sys.path.append('../')
+import lang
+ln = lang.message[config['lang']]
 
 @asyncio.coroutine
 async def run(message, matches, chat_id, step):
@@ -33,7 +36,7 @@ async def run(message, matches, chat_id, step):
         if step == 0:
             hide_keyboard = {'hide_keyboard': True, 'selective': True}
             user_steps[from_id] = {"name": "weather", "step": 1, "data": []}
-            text = '🏘نام شهر خود را وارد کنید(ترجیها انگلیسی بنویسید)'
+            text = ln['weather']['city']
             return [Message(chat_id).set_text(text, reply_markup=hide_keyboard)]
         elif step == 1:
             del user_steps[from_id]
@@ -55,7 +58,7 @@ async def run(message, matches, chat_id, step):
                                                                                    desc)
                 return [Message(chat_id).set_text(res, parse_mode="html",reply_markup=key)]
             except:
-                return [Message(chat_id).set_text("ـپیدا نکردم شهرتو 😢ـ", parse_mode="Markdown",reply_markup=key)]
+                return [Message(chat_id).set_text(ln['weather']['error'], parse_mode="Markdown",reply_markup=key)]
 
 plugin = {
     "name": "weather",
