@@ -354,7 +354,7 @@ def callback(message, matches, chat_id):
 
         if matches[0] == 'lock_':
             l = matches[0]+matches[1]
-            text = str(ln['panel']['setting_text']).format(message['from']['first_name'], message['from']['id'], l)
+            text = str(ln['panel']['setting_text2']).format(message['from']['first_name'], message['from']['id'], l)
             key = []
             for lock in locks:
                 if lock == l:
