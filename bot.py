@@ -436,24 +436,27 @@ t.me/{}?start=support
                                     yield from sender(return_value)
                         break
     except Exception as e:
-        #print(e)
+        print(e)
         pass
 
 
 @asyncio.coroutine
 def on_callback_query(message):
-    if not 'game_short_name' in message: #debugged
-        query_id, from_id, data = telepot.glance(message, flavor='callback_query')
-        for plugin in plugins:
-            if 'callback' in plugin:
-                for pattern in plugin['callback_patterns']:
-                    if re.search(pattern, data, re.IGNORECASE | re.MULTILINE):
-                        matches = re.findall(pattern, data, re.IGNORECASE)
-                        return_value = yield from plugin['callback'](message, matches[0],
+    try:
+        if not 'game_short_name' in message:
+            query_id, from_id, data = telepot.glance(message, flavor='callback_query')
+            for plugin in plugins:
+                if 'callback' in plugin:
+                    for pattern in plugin['callback_patterns']:
+                        if re.search(pattern, data, re.IGNORECASE | re.MULTILINE):
+                            matches = re.findall(pattern, data, re.IGNORECASE)
+                            return_value = yield from plugin['callback'](message, matches[0],
                                                                      message['message']['chat']['id'])
-                        if return_value:
-                            yield from sender(return_value)
-                        break
+                            if return_value:
+                                yield from sender(return_value)
+                            break
+    except Exception as e:
+        print(e)
 
 
 @asyncio.coroutine
