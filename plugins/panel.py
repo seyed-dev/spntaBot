@@ -44,9 +44,7 @@ def run(message, matches, chat_id, step):
             ]
         ]
         markup = InlineKeyboardMarkup(inline_keyboard=key)
-        response.set_text("📋به پنل تنظیمات ربات خوش آمدید برای مدیریت گروه از کیبورد زیر استفاده کنید.("
-                      "فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)",
-                      parse_mode="Markdown", reply_markup=markup)
+        response.set_text(ln['panel']['menu_set'], parse_mode="Markdown", reply_markup=markup)
         return [response]
 
 
@@ -113,8 +111,7 @@ def callback(message, matches, chat_id):
             msgid = (chat_id, message[ 'message' ][ 'message_id' ])
             return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
         if data == '/back':
-            text = "📋به پنل تنظیمات ربات خوش آمدید برای مدیریت گروه از کیبورد زیر استفاده کنید." \
-                   "(فقط ادمین های ربات در گروه قابلیت کار کردن با این کیبورد را دارند)"
+            text = ln['panel']['menu_set']
             ex = int(r.ttl('expire:{}'.format(chat_id))) - time.time()
             days = int(ex / 86400)
             key = [
@@ -126,8 +123,8 @@ def callback(message, matches, chat_id):
                     InlineKeyboardButton(text='👥لیست مدیران', callback_data='/admins'),
                 ],
                 [
-                    InlineKeyboardButton(text='روز {}'.format(days), callback_data='/expire'),
-                    InlineKeyboardButton(text='📆شارژ گروه', callback_data='/expire'),
+                    InlineKeyboardButton(text=str(ln['panel']['days']).format(days), callback_data='/expire'),
+                    InlineKeyboardButton(text=ln['panel']['expire'], callback_data='/expire'),
                 ]
             ]
             markup = InlineKeyboardMarkup(inline_keyboard=key)
@@ -159,11 +156,11 @@ def callback(message, matches, chat_id):
                     InlineKeyboardButton(text='➕', callback_data='spam_time_up'),
                 ],
                 [
-                    InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                    InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                 ]
 
             ]
-            text = 'منوی تنظیمات ارسال پیام🗯'
+            text = ln['panel']['menu_pm']
             markup = InlineKeyboardMarkup(inline_keyboard=key)
             msgid = (chat_id, message[ 'message' ][ 'message_id' ])
             return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markup)
@@ -202,7 +199,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='➕', callback_data='spam_time_up'),
                     ],
                     [
-                        InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                        InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                     ]
 
                 ]
@@ -242,7 +239,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='➕', callback_data='spam_time_up'),
                     ],
                     [
-                        InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                        InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                     ]
 
                 ]
@@ -282,7 +279,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='➕', callback_data='spam_time_up'),
                     ],
                     [
-                        InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                        InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                     ]
 
                 ]
@@ -322,7 +319,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='➕', callback_data='spam_time_up'),
                     ],
                     [
-                        InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                        InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                     ]
 
                 ]
@@ -342,7 +339,7 @@ def callback(message, matches, chat_id):
                 )
             key.append(
                 [
-                    InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                    InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                 ]
             )
             markey = InlineKeyboardMarkup(inline_keyboard=key)
@@ -378,7 +375,7 @@ def callback(message, matches, chat_id):
                 )
             key.append(
                 [
-                    InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                    InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                 ]
             )
             markey = InlineKeyboardMarkup(inline_keyboard=key)
