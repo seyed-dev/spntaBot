@@ -14,17 +14,12 @@ import pytz
 import lang
 
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
-
 bot = telepot.Bot(config['token'])
-
+ln = lang.message[config['lang']]
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
-    ln = lang
-    if r.hget('lang_gp', chat_id) == 'en':
-        ln = ln.en
-    else:
-        ln = ln.fa
+
     if matches == 'setowner':
         if 'reply_to_message' in message:
             if is_sudo(message):
@@ -77,10 +72,7 @@ def run(message, matches, chat_id, step):
         if is_mod(message):
             user = str(matches[1])
             bot.kickChatMember(chat_id, user)
-            bot.sendMessage(chat_id, 'کاربر {} از گروه اخراج شد❌'.format(user))
-            bot.sendMessage(r.hget('owner', chat_id), '''کاربر [{}](tg://user?id={}) از گروه {} اخراج شد❌
-اخراج کننده :  [{}](tg://user?id={})
-'''.format(user, user, message['chat']['title'], message['from']['id'], message['from']['id']), parse_mode='Markdown')
+            bot.sendMessage(chat_id, str(ln['ingroup']['ban_id']).format(user))
     if matches == 'avatar':
         if is_mod(message):
             try:
@@ -155,7 +147,7 @@ def run(message, matches, chat_id, step):
                                     parse_mode='Markdown')
 
                 else:
-                    bot.sendMessage(chat_id, 'ادمینه 🤧')
+                    bot.sendMessage(chat_id, ln['ingroup']['muteError'])
     if matches == 'unmute':
         if is_mod(message):
             if 'reply_to_message' in message:
@@ -210,11 +202,6 @@ def run(message, matches, chat_id, step):
                     text = str(ln['ingroup']['setowner']).format(x['user']['first_name'], x['user']['id'])
                     bot.sendMessage(chat_id, text, parse_mode='Markdown')
                     i = i + 1
-
-    if matches[0] == 'setlang':
-        if is_mod(message):
-            r.hset('lang_gp', chat_id, matches[1])
-            return [Message(chat_id).set_text(str(ln['ingroup']['setlang']).format(matches[1]))]
 
 plugin = {
     "name": "ingroup",
