@@ -9,7 +9,7 @@ message = {
                 "lock_link": "قفل لینک📎",
                 "lock_username": "قفل یوزرنیم[@]🔗",
                 "lock_photo": "قفل عکس🖼",
-                "lock_doc": "قفل گیف🌠",
+                "lock_gif": "قفل گیف🌠",
                 "lock_film": "قفل فیلم🎥",
                 "lock_music": "قفل موزیک🎼",
                 "lock_voice": "قفل ویس🗣",
