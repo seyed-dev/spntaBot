@@ -14,9 +14,8 @@ import lang
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 bot = telepot.Bot(config['token'])
-language = config['lang']
-ln = lang.message.str(language)
 
+ln = lang.message[config['lang']]
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
     if matches == 'add':
