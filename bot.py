@@ -155,8 +155,7 @@ api_id = 30183
 api_hash = '9acd8114cf4612fc022904ec13736220'
 client = TelegramClient('spntaBot', api_id, api_hash)
 token = config['token']
-print(token)
-client.start(bot_token=)
+client.start(bot_token=token)
 
 
 def get_user_id(username):
