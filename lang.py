@@ -1,5 +1,28 @@
 message = {
     "fa" : {
+        "panel":{
+            "locks":{
+                "lock_link": "قفل لینک📎",
+                "lock_username": "قفل یوزرنیم[@]🔗",
+                "lock_photo": "قفل عکس🖼",
+                "lock_doc": "قفل گیف🌠",
+                "lock_film": "قفل فیلم🎥",
+                "lock_music": "قفل موزیک🎼",
+                "lock_voice": "قفل ویس🗣",
+                "lock_game": "قفل بازی🏓",
+                "lock_doc": "قفل فایل📁",
+                "lock_contact": "قفل مخاطب🔢",
+                "lock_sticker": "قفل استیکر🎭",
+                "lock_bots": "قفل ورود ربات🤖",
+                "lock_fwd": "قفل فوروارد 🔂",
+                "lock_spam": "قفل اسپم 👿",
+                "lock_tg": "قفل پیام ورود و خروج 🚶",
+                "lock_loc": "قفل لوکیشن(مکان)🗺",
+                "lock_all": "قفل گروه🔕",
+                "lock_video_note": "قفل ویدیو مسیج🤳"
+        },
+            "notfound" : "وجود ندارد❌",
+        },
         "weather":{
             "city":"🏘نام شهر خود را وارد کنید(ترجیها انگلیسی بنویسید)",
             "error":"پیدا نکردم شهرتو 😢"
@@ -55,6 +78,29 @@ message = {
         }
     },
     "en": {
+        "panel":{
+            "locks":{
+                "lock_link": "Lock link📎",
+                "lock_username": "Lock username[@]🔗",
+                "lock_photo": "Lock photo🖼",
+                "lock_gif": "Lock gif🌠",
+                "lock_film": "Lock video🎥",
+                "lock_music": "Lock music🎼",
+                "lock_voice": "Lock voice🗣",
+                "lock_game": "Lock gmae🏓",
+                "lock_doc": "Lock file📁",
+                "lock_contact": "Lock contact🔢",
+                "lock_sticker": "Lock sticker🎭",
+                "lock_bots": "Lock join Bot🤖",
+                "lock_fwd": "Lock forward 🔂",
+                "lock_spam": "Lock spam 👿",
+                "lock_tg": "Lock tgservice 🚶",
+                "lock_loc": "Lock location🗺",
+                "lock_all": "Lock group🔕",
+                "lock_video_note": "Lock video note🤳"
+        },
+            "notfound" : "Not Found❌",
+        },
         "weather":{
             "city":"🏘please send city name",
             "error":"city not found 😢"
