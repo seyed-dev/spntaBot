@@ -151,18 +151,6 @@ def markdown_escape(text):
     return text
 
 
-api_id = 30183
-api_hash = '9acd8114cf4612fc022904ec13736220'
-client = TelegramClient('spntaBot', api_id, api_hash)
-print(config)
-token = config['token']
-client.start(bot_token=token)
-
-
-def get_user_id(username):
-    return client.get_entity(username.replace('@', '')).id
-
-
 @asyncio.coroutine
 def handle_messages(message):
     try:
@@ -587,6 +575,19 @@ def sender(message):
         return r
     except:
         pass
+
+
+    
+api_id = 30183
+api_hash = '9acd8114cf4612fc022904ec13736220'
+client = TelegramClient('spntaBot', api_id, api_hash)
+print(config)
+token = config['token']
+client.start(bot_token=token)
+
+
+def get_user_id(username):
+    return client.get_entity(username.replace('@', '')).id
 
 
 @asyncio.coroutine
