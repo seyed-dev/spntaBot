@@ -10,7 +10,10 @@ from bot import downloader, get, is_group, config
 from message import Message
 
 bot = telepot.Bot(config['token'])
-
+import sys
+sys.path.append('../')
+import lang
+ln = lang.message[config['lang']]
 
 @asyncio.coroutine
 async def run(message, matches, chat_id, step):
@@ -25,8 +28,8 @@ async def run(message, matches, chat_id, step):
         ret = soup.find("a", {"class": "request-retweeted-popup"})
         if text:
             mtext = '{}\n\n«{}»\n{} - {}\n{}'.format(text.get_text(), name.get_text(),
-                                                     like['data-activity-popup-title'].replace('پسندیدن', '❤️'),
-                                                     ret['data-activity-popup-title'].replace('بازتوییت', '🔁'),
+                                                     like['data-activity-popup-title'].replace('like', '❤️'),
+                                                     ret['data-activity-popup-title'].replace('retweet', '🔁'),
                                                      date.get_text())
             if photo:
                 msg = bot.sendPhoto(chat_id, photo['data-image-url'], reply_to_message_id=message['message_id'])
@@ -34,7 +37,7 @@ async def run(message, matches, chat_id, step):
             else:
                 return [Message(chat_id).set_text(mtext, parse_mode="html", reply_to_message_id=message['message_id'])]
         else:
-            return [Message(chat_id).set_text("<b>لینک اشتباهه 😞 !</b>:\n", parse_mode="html",
+            return [Message(chat_id).set_text(ln['radiojavan']['linkError'], parse_mode="html",
                                               reply_to_message_id=message['message_id'])]
 
 
@@ -53,12 +56,12 @@ async def inline(message, matches, chat_id, step):
     if text:
         mtext = '{}\n\n«{}»\n{}'.format(text.get_text(), name.get_text(),
                                                  date.get_text())
-        des = '{} {}'.format(like['data-activity-popup-title'].replace('پسندیدن', '❤️'),
-                             ret['data-activity-popup-title'].replace('بازتوییت', '🔁'),)
+        des = '{} {}'.format(like['data-activity-popup-title'].replace('like', '❤️'),
+                             ret['data-activity-popup-title'].replace('retweet', '🔁'),)
         show_keyboard = [
             [
-                InlineKeyboardButton(text=like['data-activity-popup-title'].replace('پسندیدن', '❤️'), url=link),
-                InlineKeyboardButton(text=ret['data-activity-popup-title'].replace('بازتوییت', '🔁'), url=link),
+                InlineKeyboardButton(text=like['data-activity-popup-title'].replace('like', '❤️'), url=link),
+                InlineKeyboardButton(text=ret['data-activity-popup-title'].replace('retweet', '🔁'), url=link),
             ]
         ]
         markup = InlineKeyboardMarkup(inline_keyboard=show_keyboard)
