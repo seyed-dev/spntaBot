@@ -33,6 +33,10 @@ def reload_plugin():
     load_plugins()
     return "Plugins Reloaded !"
 
+def setlang(lang):
+    config['lang'].update(lang)
+    save_config()
+    return "Lang set " + lang
 
 def show_plugin():
     plugin_files = [files for files in os.listdir(join(WD, "plugins")) if re.search("^(.*)\.py$", files)]
@@ -59,6 +63,8 @@ def run(message, matches, chat_id, step):
         response.set_text(remove_plugin(matches[1]))
     if matches == "reload":
         response.set_text(reload_plugin())
+    if matches[0] == 'setlang':
+        response.set_text(setlang(matches[1]))
     return [response]
 
 
@@ -67,9 +73,11 @@ plugin = {
     "desc": "Show the plugins",
     "run": run,
     "sudo": True,
-    "patterns": ["^[!/#]plugins (enable) (.+?)$",
-                 "^[!/#]plugins (disable) (.+?)$",
-                 "^[!/#]plugins (reload)$",
-                 "^[!/#]plugins$",
-                 ]
+    "patterns": [
+        "^[!/#]plugins (enable) (.+?)$",
+        "^[!/#]plugins (disable) (.+?)$",
+        "^[!/#]plugins (reload)$",
+        "^[!/#]plugins$",
+        "^[!/#](setlang) (.*)$"
+    ]
 }
