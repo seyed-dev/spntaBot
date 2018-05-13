@@ -1,5 +1,18 @@
 message = {
     "fa" : {
+        "bot" : {
+            "block": "شما بلاک شدید ❌",
+            "unblock" : "شما از بلاک خارج شدید✅",
+            "pmsend": "پیام شما ارسال شد✅",
+            "pmerror": "❌شما نمیتوانید پیام فوروارد کنید❌",
+            "contact_save": "سلام دوست عزیز\nشماره شما در سیستم پشتیبانی ربات ثبت شد✅",
+            "spam": "کاربر [{}](tg://user?id={}) \nشما به دلیل ارسال {} پیام در یک دقیقه برای {} ثانیه در گروه محدود شدید و نمیتوانید چت کنید😕",
+            "expire_warn":"فقط 1 روز از انقضای گروه باقی مانده است.😕\nدر صورت عدم تمدید ربات از گروه لفت خواهد داد🤦‍♂️",
+            "expire":"تاریخ انقضای گروه به پایان رسید.🤧\nربات از گروه لفت خواهد داد",
+            "notadd": "گروه در لیست گروه های ربات موجود نیست برای ارتباط با پشتیبانی روی لینک زیر بزنید\nt.me/{}?start=support",
+            "user_add_bot": "کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞\nبرای خروج از این وضعیت به مدیران گروه مراجعه کنید👌",
+            
+        },
         "panel":{
             "menu":"🏛 منوی اصلی",
             "expire":"📆شارژ گروه",
@@ -88,6 +101,19 @@ message = {
         }
     },
     "en": {
+        "bot" : {
+            "block": "Admin blocked you ❌",
+            "unblock" : "Admin unblocked you✅",
+            "pmsend": "Your message send to admin group✅",
+            "pmerror": "❌You can't Forward message❌",
+            "contact_save": "Hi my friend\nYour contact Has been saved on database✅\ndatabase is secure",
+            "spam": "user  [{}](tg://user?id={}) \n You has been muted because you send {} message in {} minutes and this is against the law",
+            "expire_warn":"1 day until the end of the expiration date of the remaining groups.😕",
+            "expire":"group is expired\n bye bye🤧",
+            "notadd": "Group is not added\n please call to support\n t.me/{}?start=support",
+            "user_add_bot": "user [{}](tg://user?id={}) \n You muted because you added robot this group .😞\nplease call to owner group👌",
+            
+        },
         "panel":{
             "panel":{
                 "menu":"🏛 Menu",
