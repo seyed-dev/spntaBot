@@ -13,6 +13,7 @@ message = {
             "user_add_bot": "کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞\nبرای خروج از این وضعیت به مدیران گروه مراجعه کنید👌" 
         },
         "panel":{
+            "setting_change_text":"برای تغییر حالت قفل بر روی آن کلیک کنید👌",
             "setting_lock":"🔐 منوی قفل ها",
             "setting_message":"📝تنظیمات پیام",
             "list_admin":"👥لیست مدیران",
@@ -118,6 +119,7 @@ message = {
             "user_add_bot": "user [{}](tg://user?id={}) \n You muted because you added robot this group .😞\nplease call to owner group👌"
         },
         "panel":{
+            "setting_change_text":"To change the lock mode, click on it👌",
             "setting_lock":"🔐 Lock settings",
             "setting_message":"📝Message settings",
             "list_admin":"👥Admins",
