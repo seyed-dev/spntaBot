@@ -29,18 +29,15 @@ def run(message, matches, chat_id, step):
         days = int(ex / 86400)
         key = [
             [
-                InlineKeyboardButton(text='🔐 منوی قفل ها', callback_data='/locks'),
-                InlineKeyboardButton(text='📝تنظیمات پیام', callback_data='/pmsetting'),
+                InlineKeyboardButton(text=ln['panel']['setting_lock'], callback_data='/locks'),
+                InlineKeyboardButton(text=ln['panel']['setting_message'], callback_data='/pmsetting'),
             ],
             [
-                InlineKeyboardButton(text='👥لیست مدیران', callback_data='/admins'),
+                InlineKeyboardButton(text=ln['panel']['list_admin'], callback_data='/admins'),
             ],
             [
-                InlineKeyboardButton(text='روز {}'.format(days), callback_data='/expire'),
-                InlineKeyboardButton(text='📆شارژ گروه', callback_data='/expire'),
-            ],
-            [
-                InlineKeyboardButton(text='💡ورود به کانال راهنما💡', url='https://t.me/spntaHelp'),
+                InlineKeyboardButton(text=str(ln['panel']['days']).format(days), callback_data='/expire'),
+                InlineKeyboardButton(text=ln['panel']['expire'], callback_data='/expire'),
             ]
         ]
         markup = InlineKeyboardMarkup(inline_keyboard=key)
@@ -104,7 +101,7 @@ def callback(message, matches, chat_id):
 
             key = [
                 [
-                    InlineKeyboardButton(text='🏛 منوی اصلی', callback_data='/back'),
+                    InlineKeyboardButton(text=ln['panel']['menu'], callback_data='/back'),
                 ]
             ]
             markup = InlineKeyboardMarkup(inline_keyboard=key)
@@ -116,12 +113,12 @@ def callback(message, matches, chat_id):
             days = int(ex / 86400)
             key = [
                 [
-                    InlineKeyboardButton(text='🔐 منوی قفل ها', callback_data='/locks'),
-                    InlineKeyboardButton(text='📝تنظیمات پیام', callback_data='/pmsetting'),
-                ],
-                [
-                    InlineKeyboardButton(text='👥لیست مدیران', callback_data='/admins'),
-                ],
+                InlineKeyboardButton(text=ln['panel']['setting_lock'], callback_data='/locks'),
+                InlineKeyboardButton(text=ln['panel']['setting_message'], callback_data='/pmsetting'),
+            ],
+            [
+                InlineKeyboardButton(text=ln['panel']['list_admin'], callback_data='/admins'),
+            ],
                 [
                     InlineKeyboardButton(text=str(ln['panel']['days']).format(days), callback_data='/expire'),
                     InlineKeyboardButton(text=ln['panel']['expire'], callback_data='/expire'),
@@ -137,7 +134,7 @@ def callback(message, matches, chat_id):
             TIME_LIMIT = value[1]
             key = [
                 [
-                    InlineKeyboardButton(text='🔽 تعداد مجاز پیام در دقیقه 🔽', callback_data='hem')
+                    InlineKeyboardButton(text=ln['panel']['flood'], callback_data='hem')
                 ],
                 [
                     InlineKeyboardButton(text='➖', callback_data='spam_num_down'),
@@ -148,7 +145,7 @@ def callback(message, matches, chat_id):
                     InlineKeyboardButton(text='               ', callback_data='hem')
                 ],
                 [
-                    InlineKeyboardButton(text='🔽 تایم محدودیت کاربر(به دقیقه)🔽', callback_data='hem')
+                    InlineKeyboardButton(text=ln['panel']['spam_mute'], callback_data='hem')
                 ],
                 [
                     InlineKeyboardButton(text='➖', callback_data='spam_time_down'),
@@ -180,7 +177,7 @@ def callback(message, matches, chat_id):
                 TIME_LIMIT = value[1]
                 key = [
                     [
-                        InlineKeyboardButton(text='🔽 تعداد مجاز پیام در دقیقه 🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['flood'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_num_down'),
@@ -191,7 +188,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='               ', callback_data='hem')
                     ],
                     [
-                        InlineKeyboardButton(text='🔽 تایم محدودیت کاربر(به دقیقه)🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['spam_mute'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_time_down'),
@@ -220,7 +217,7 @@ def callback(message, matches, chat_id):
                 TIME_LIMIT = value[1]
                 key = [
                     [
-                        InlineKeyboardButton(text='🔽 تعداد مجاز پیام در دقیقه 🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['flood'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_num_down'),
@@ -231,7 +228,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='               ', callback_data='hem')
                     ],
                     [
-                        InlineKeyboardButton(text='🔽 تایم محدودیت کاربر(به دقیقه)🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['spam_mute'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_time_down'),
@@ -260,7 +257,7 @@ def callback(message, matches, chat_id):
                 TIME_LIMIT = value[1]
                 key = [
                     [
-                        InlineKeyboardButton(text='🔽 تعداد مجاز پیام در دقیقه 🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['flood'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_num_down'),
@@ -271,7 +268,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='               ', callback_data='hem')
                     ],
                     [
-                        InlineKeyboardButton(text='🔽 تایم محدودیت کاربر(به دقیقه)🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['spam_mute'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_time_down'),
@@ -300,7 +297,7 @@ def callback(message, matches, chat_id):
                 TIME_LIMIT = value[1]
                 key = [
                     [
-                        InlineKeyboardButton(text='🔽 تعداد مجاز پیام در دقیقه 🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['flood'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_num_down'),
@@ -311,7 +308,7 @@ def callback(message, matches, chat_id):
                         InlineKeyboardButton(text='               ', callback_data='hem')
                     ],
                     [
-                        InlineKeyboardButton(text='🔽 تایم محدودیت کاربر(به دقیقه)🔽', callback_data='hem')
+                        InlineKeyboardButton(text=ln['panel']['spam_mute'], callback_data='hem')
                     ],
                     [
                         InlineKeyboardButton(text='➖', callback_data='spam_time_down'),
