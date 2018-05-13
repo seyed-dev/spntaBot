@@ -18,6 +18,7 @@ from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 import json
 import urllib.request as ur
 from telethon import TelegramClient
+import lang
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 
 WD = dirname(realpath(__file__))
@@ -160,6 +161,7 @@ def handle_messages(message):
         lock_spam = r.hget('lock_spam', chat_id)
         support = config['contact_channel']
         supgp = config['support_gp']
+        ln = lang.message[config['lang']]
         if chat_type == 'supergroup':
             if chat_id == supgp:
                 if 'reply_to_message' in message:
@@ -170,10 +172,10 @@ def handle_messages(message):
                         if 'text' in message:
                             if message['text'] == '/ban_user':
                                 r.hset('block_user_sup', user, True)
-                                yield from bot.sendMessage(user, 'شما بلاک شدید ❌')
+                                yield from bot.sendMessage(user, ln['bot']['block'])
                             elif message['text'] == '/unban_user':
                                 r.hdel('block_user_sup', user)
-                                yield from bot.sendMessage(user, 'شما از بلاک خارج شدید✅')
+                                yield from bot.sendMessage(user, ln['bot']['unblock'])
                             else:
                                 yield from bot.sendMessage(user, message['text'])
                         elif 'photo' in message:
@@ -188,30 +190,19 @@ def handle_messages(message):
                 if not r.hget('block_user_sup', chat_id):
                     if not 'forward_date' in message:
                         yield from bot.forwardMessage(supgp, chat_id, message['message_id'])
-                        yield from bot.sendMessage(chat_id, 'پیام شما ارسال شد✅')
+                        yield from bot.sendMessage(chat_id, ln['bot']['pmsend'])
                     else:
-                        yield from bot.sendMessage(chat_id, '❌شما نمیتوانید پیام فوروارد کنید❌')
+                        yield from bot.sendMessage(chat_id, ln['bot']['pmerror'])
             if content_type == 'contact':
                 if r.hget('contact_w8', chat_id):
                     if message['contact']['user_id'] == message['from']['id']:
                         print(message)
-                        text = '''سلام دوست عزیز
- شماره شما در سیستم پشتیبانی ربات ثبت شد✅
-
-'''
+                        text = ln['bot']['contact_save']
                         ir = message['contact']['phone_number'][:2]
-                        if ir == '98':
-
-                            r.hset('contact_user', chat_id, message['contact']['phone_number'])
-                            yield from bot.sendMessage(chat_id, 'شماره شما در سیستم ثبت شد✅\n'
-                                                                'برای ارتباط با پشتیبانی مجددا دکمه پشتیبانی را فشار دهید💠',
-                                                       reply_markup=key)
-                            yield from bot.forwardMessage(support, chat_id, message['message_id'])
-                            r.hdel('contact_w8', chat_id)
-                    else:
-                        bot.sendMessage(chat_id, '''امکان اتصال شما به پشتیبانی وجود ندارد.❌
-فقط شماره های ایران🇮🇷 میتوانند با پشتیبانی تماس بگیرند
-''')
+                        r.hset('contact_user', chat_id, message['contact']['phone_number'])
+                        yield from bot.sendMessage(chat_id, text, reply_markup=key)
+                        yield from bot.forwardMessage(support, chat_id, message['message_id'])
+                        r.hdel('contact_w8', chat_id)
         if lock_spam and not is_mod(message) and not content_type == 'new_chat_member':
             from_id = message['from']['id']
             get_spam = r.hget('get_spam', chat_id) or '10,1'
@@ -220,9 +211,7 @@ def handle_messages(message):
             TIME_LIMIT = int(int(value[1]) * 60)
             TIME_SPAM = r.hget('TIME_SPAM:{}'.format(chat_id), from_id) or 0
             member = r.get('spam:{}:{}'.format(chat_id, from_id)) or 0
-            text = '''کاربر [{}](tg://user?id={})
-شما به دلیل ارسال {} پیام در یک دقیقه برای {} ثانیه در گروه محدود شدید و نمیتوانید چت کنید😕
-             '''.format(message['from']['first_name'], from_id, NUM_MAX, TIME_LIMIT)
+            text = str(ln['bot']['spam']).format(message['from']['first_name'], from_id, NUM_MAX, TIME_LIMIT)
             if float(TIME_SPAM) > time.time():
                 if int(member) > int(NUM_MAX):
                     r.delete('spam:{}:{}'.format(chat_id, from_id))
@@ -245,14 +234,9 @@ def handle_messages(message):
             if time.time() > int(ex):
                 if not r.hget('warn:1:expire', chat_id):
                     r.hset('warn:1:expire', chat_id, True)
-                    yield from bot.sendMessage(chat_id, '''فقط 1 روز از انقضای گروه باقی مانده است.😕
-در صورت عدم تمدید ربات از گروه لفت خواهد داد🤦‍♂️
-''')
+                    yield from bot.sendMessage(chat_id, ln['bot']['expire_warn'])
             if time.time() > int(ex) and time.time() > int(r.ttl('expire:{}'.format(chat_id))):
-                yield from bot.sendMessage(chat_id, '''تاریخ انقضای گروه به پایان رسید.🤧
-ربات از گروه لفت خواهد داد
-برای خرید مجدد به پیوی ربات مراجعه و گزینه "🤖ضد لینک و هوش مصنوعی گروه" را بزنید و ربات رو مجددا به گروه اد کنید
-''')
+                yield from bot.sendMessage(chat_id, ln['bot']['expire'])
                 r.delete('expire:{}'.format(chat_id))
                 r.srem('groups', chat_id)
                 yield from bot.leaveChat(chat_id)
@@ -266,12 +250,7 @@ def handle_messages(message):
             if not r.sismember('groups', chat_id):
                 if not is_sudo(message):
                     user = yield from bot.getMe()['username']
-                    text = '''
- گروه در لیست گروه های ربات موجود نیست
-برای ارتباط با پشتیبانی روی لینک زیر بزنید
-
-t.me/{}?start=support
-'''.format(user)
+                    text = str(ln['bot']['notadd']).format(user)
                     yield from bot.sendMessage(chat_id, text)
 
         if not is_mod(message):
@@ -312,9 +291,7 @@ t.me/{}?start=support
                                                               can_send_messages=False, can_send_media_messages=False,
                                                               can_send_other_messages=False,
                                                               can_add_web_page_previews=False)
-                            yield from bot.sendMessage(chat_id, '''کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞
-برای خروج از این وضعیت به مدیران گروه مراجعه کنید👌
-'''.format(message['from']['first_name'], message['from']['id']), parse_mode='Markdown')
+                            yield from bot.sendMessage(chat_id, str(ln['bot']['user_add_bot']).format(message['from']['first_name'], message['from']['id']), parse_mode='Markdown')
                 lock_tg = r.hget('lock_tg', chat_id)
                 if lock_tg:
                     yield from bot.deleteMessage(telepot.message_identifier(message))
