@@ -342,7 +342,7 @@ def callback(message, matches, chat_id):
             markey = InlineKeyboardMarkup(inline_keyboard=key)
 
 
-            text = 'برای تغییر حالت قفل بر روی آن کلیک کنید👌'
+            text = ln['panel']['setting_change_text']
             msgid = (chat_id, message[ 'message' ][ 'message_id' ])
             return Message(chat_id).edit_message(msgid, text, parse_mode="Markdown", reply_markup=markey)
 
