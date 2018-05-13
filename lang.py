@@ -210,5 +210,111 @@ message = {
             "id": "🆔 \\[{}]",
             "username": "▶️ @{}"
         }
+    },
+    "ar": {
+        "bot" : {
+            "block": "",
+            "unblock" : "",
+            "pmsend": "",
+            "pmerror": "",
+            "contact_save": "",
+            "spam": "",
+            "expire_warn":"",
+            "expire":"",
+            "notadd": "",
+            "user_add_bot": ""
+        },
+        "panel":{
+            "setting_change_text":"",
+            "setting_lock":"",
+            "setting_message":"",
+            "list_admin":"",
+            "flood":"",
+            "spam_mute":"",
+            "menu":"",
+            "expire":"",
+            "days": "",
+            "menu_pm":"",
+            "menu_set": "",
+            "setting_text": "",
+            "setting_text2": "",
+            "admins": "",
+            "disable": "",
+            "enable": "",
+            "locks":{
+                    "lock_link": "",
+                    "lock_username": "",
+                    "lock_photo": "",
+                    "lock_gif": "",
+                    "lock_film": "",
+                    "lock_music": "",
+                    "lock_voice": "",
+                    "lock_game": "",
+                    "lock_doc": "",
+                    "lock_contact": "",
+                    "lock_sticker": "",
+                    "lock_bots": "",
+                    "lock_fwd": "",
+                    "lock_spam": "",
+                    "lock_tg": "",
+                    "lock_loc": "",
+                    "lock_all": "",
+                    "lock_video_note": ""
+            },
+            "notfound" : "",
+        },
+        "weather":{
+            "city":"",
+            "error":""
+        },
+        "radiojavan" : {
+        "linkError": ""
+        },
+        "ingroup": {
+            "setowner": "",
+            "setlang": "",
+            "user": "",
+            "title": "",
+            "pin": "",
+            "unpin": "",
+            "ban": "",
+            "ban_id": "",
+            "banError": "",
+            "muteError": "",
+            "admins": {
+                "0": "",
+                "1": ""
+        },
+            "filter": "",
+            "unfilter": "",
+            "filters": "",
+            "mute": "",
+            "unmute": "",
+            "muteAll": {
+                "0": "",
+                "1": ""
+            },
+            "unmuteAll": {
+                "0": "",
+                "1": ""
+            },
+            "admins_set": ""
+        },
+        "admin": {
+            "add": {
+                "0": "",
+                "1": ""
+            },
+            "rem": {
+                "0": "",
+                "1": ""
+            }
+        },
+        "who": {
+            "name": "👤 *{} {}*",
+            "group": "👥 *{}*",
+            "id": "🆔 \\[{}]",
+            "username": "▶️ @{}"
+        }
     }
 }
