@@ -34,7 +34,7 @@ def reload_plugin():
     return "Plugins Reloaded !"
 
 def setlang(lang):
-    config['lang'].update(lang)
+    config['lang'] = lang
     save_config()
     return "Lang set " + lang
 
