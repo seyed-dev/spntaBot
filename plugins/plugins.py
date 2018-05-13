@@ -36,6 +36,7 @@ def reload_plugin():
 def setlang(lang):
     config['lang'] = lang
     save_config()
+    load_plugins()
     return "Lang set " + lang
 
 def show_plugin():
