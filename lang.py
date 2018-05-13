@@ -10,8 +10,7 @@ message = {
             "expire_warn":"فقط 1 روز از انقضای گروه باقی مانده است.😕\nدر صورت عدم تمدید ربات از گروه لفت خواهد داد🤦‍♂️",
             "expire":"تاریخ انقضای گروه به پایان رسید.🤧\nربات از گروه لفت خواهد داد",
             "notadd": "گروه در لیست گروه های ربات موجود نیست برای ارتباط با پشتیبانی روی لینک زیر بزنید\nt.me/{}?start=support",
-            "user_add_bot": "کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞\nبرای خروج از این وضعیت به مدیران گروه مراجعه کنید👌"
-            
+            "user_add_bot": "کاربر [{}](tg://user?id={}) شما به دلیل افزودن ربات برای همیشه از چت کردن محروم شدید.😞\nبرای خروج از این وضعیت به مدیران گروه مراجعه کنید👌" 
         },
         "panel":{
             "menu":"🏛 منوی اصلی",
@@ -43,7 +42,7 @@ message = {
                 "lock_loc": "قفل لوکیشن(مکان)🗺",
                 "lock_all": "قفل گروه🔕",
                 "lock_video_note": "قفل ویدیو مسیج🤳"
-        },
+            },
             "notfound" : "وجود ندارد❌",
         },
         "weather":{
@@ -67,7 +66,7 @@ message = {
             "admins": {
                 "0": "وجود ندارد❌",
                 "1": "👤 ادمین اصلی : {}\nسایر ادمین ها :\n{}"
-        },
+            },
             "filter": "☠️کلمات زیر به لیست فیلتر افزوده شدند :\n{}",
             "unfilter": "☠️کلمات زیر از لیست فیلتر حذف شدند :\n{}",
             "filters": "🤐لیست کلمات فیلتر شده :\n{}",
@@ -112,10 +111,8 @@ message = {
             "expire":"group is expired\n bye bye🤧",
             "notadd": "Group is not added\n please call to support\n t.me/{}?start=support",
             "user_add_bot": "user [{}](tg://user?id={}) \n You muted because you added robot this group .😞\nplease call to owner group👌"
-            
         },
         "panel":{
-            "panel":{
                 "menu":"🏛 Menu",
                 "expire":"📆Expire",
                 "days": "days {}",
