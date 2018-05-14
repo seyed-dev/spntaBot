@@ -61,7 +61,8 @@ screen -r spntaBot
 ```
 Ctrl + C !
 
-
+## Special thanks to
+[mr moka](https://github.com/devdeen) For writing Arabic language 
 
 ### Please
 please feel free to ask any questions here by issues or on telegram via [@ITMKH](https://telegram.me/ITMKH/)
