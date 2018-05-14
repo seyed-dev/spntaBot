@@ -7,16 +7,11 @@ sys.path.append('../')
 import lang
 import redis
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
-
+ln = lang.message[config['lang']]
 
 @asyncio.coroutine
 def run(message, matches, chat_id, step):
     content_type, chat_type, chat_id = telepot.glance(message)
-    ln = lang
-    if r.hget('lang_gp', chat_id) == 'en':
-        ln = ln.en
-    else:
-        ln = ln.fa
     if 'reply_to_message' in message:
         if 'forward_from' in message['reply_to_message']:
             response = ""
