@@ -6,6 +6,7 @@ import sys
 sys.path.append('../')
 import lang
 import redis
+from bot import config
 r = redis.StrictRedis(host='localhost', port=6379, db=5, decode_responses=True)
 ln = lang.message[config['lang']]
 
