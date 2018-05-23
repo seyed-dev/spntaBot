@@ -8,8 +8,8 @@ spnta is a telegram bot based on [Telepot](https://github.com/nickoala/telepot) 
 #### spntaBot on Telegram:
 
 - [`@testspntaBot`](https://telegram.me/testspntaBot)
-	- **_channel_**: [`@IT_SEYED`](https://telegram.me/IT_SEYED)
-	-**_Group_**: [https://t.me/joinchat/G5skD0Y1vtBtEsKGWP0xKw](https://t.me/joinchat/G5skD0Y1vtBtEsKGWP0xKw)
+	- **_channel_**: [`@IT_SEYED`](https://telegram.me/IT_SEYED).
+	- **_Group_**: [https://t.me/joinchat/G5skD0Y1vtBtEsKGWP0xKw](https://t.me/joinchat/G5skD0Y1vtBtEsKGWP0xKw).
 * * *
 
 
